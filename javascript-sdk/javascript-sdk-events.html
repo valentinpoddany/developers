@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Slaask - Documentation</title>
+  <link rel="stylesheet" href="/assets/main.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+</head>
+<body>
+  <aside class="sidebar sidebar-boxed">
+
+    <a class="sidebar-brand" href="index.html"><img src="https://cdn.slaask.com/slaask_logo_lg.png" alt="logo"></a>
+
+    <ul class="sidenav dropable sticky" style="height: 649px;position: static;">
+      <li><a href="/" class="active">Overview</a></li>
+      <li>
+        <a class="active has-child open" href="#">Javascript SDK</a>
+        <ul class="active open">
+          <li><a href="/javascript-sdk/why-a-javascript-sdk.html">Why a Javascript SDK?</a></li>
+          <li><a href="/javascript-sdk/initializing-the-widget.html">Initializing the widget</a></li>
+          <li><a href="/javascript-sdk/getting-more-informations.html">Getting more information about your visitors</a></li>
+          <li><a href="/javascript-sdk/master-your-widget.html">Master your widget</a></li>
+          <li><a href="/javascript-sdk/javascript-sdk-functions.html">Functions</a></li>
+          <li><a class="active" href="/javascript-sdk/javascript-sdk-events.html">Events</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#" class="has-child">Design</a>
+        <ul>
+          <li><a href="/design/slaask-branding.html">Slaask Branding</a></li>
+          <li><a href="/design/slaask-logos.html">Slaask Logos</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#" class="has-child">Elements</a>
+        <ul>
+          <li><a href="element_toc.html">Table of contents</a></li>
+          <li><a href="element_code.html">Code view</a></li>
+          <li><a href="element_view.html">Views</a></li>
+          <li><a href="element_promo.html">Promo</a></li>
+          <li><a href="element_files.html">Included files</a></li>
+          <li><a href="element_requirement.html">Requirements</a></li>
+          <li><a href="element_tab.html">Tabs</a></li>
+          <li><a href="element_step.html">Steps</a></li>
+          <li><a href="element_media.html">Media</a></li>
+          <li><a href="element_color.html">Color palette</a></li>
+          <li><a href="element_jumbotron.html">Jumbotron</a></li>
+          <li><a href="element_carousel.html">Carousel</a></li>
+          <li><a href="element_faq.html">FAQ</a></li>
+          <li><a href="element_mix.html">Mix</a></li>
+        </ul>
+      </li>
+
+    </ul>
+
+  </aside>
+  <header class="site-header navbar-fullwidth">
+
+    <!-- Top navbar & branding -->
+    <nav class="navbar navbar-default">
+      <div class="container">
+
+        <!-- Toggle buttons and brand -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="true" aria-controls="navbar">
+            <span class="glyphicon glyphicon-option-vertical"></span>
+          </button>
+
+          <button type="button" class="navbar-toggle for-sidebar" data-toggle="offcanvas">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <!-- END Toggle buttons and brand -->
+
+        <!-- Top navbar -->
+        <div id="navbar" class="navbar-collapse collapse" aria-expanded="true" role="banner">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="index.html">Documentation</a></li>
+            <li><a href="page_faq.html">FAQ</a></li>
+            <li class="hero"><a href="http://themeforest.net/item/thedocs-online-documentation-template/13070884/comments" target="_blank">Support</a></li>
+          </ul>
+        </div>
+        <!-- END Top navbar -->
+
+      </div>
+    </nav>
+    <!-- END Top navbar & branding -->
+
+  </header>
+  <main class="container-fluid">
+      <div class="row">
+
+        <!-- Main content -->
+        <article class="main-content" role="main">
+
+          <header>
+            <h1>Events</h1>
+          </header>
+
+          <section>
+            <p>Use this code snippet to listen to Slaask events:</p>
+
+            <pre class="line-numbers language-markup" data-language="markup">document.addEventListener('slaask.open', function (e) {
+    console.log(e.type + ' - by: ' + e.detail.by);
+}, false);
+            </pre>
+            <h3>Available events:</h3>
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>
+                    Event type
+                  </th>
+                  <th>
+                    Description
+                  </th>
+                  <th>
+                    Event details
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <code>ready</code>
+                  </td>
+                  <td>
+                    When the widget is loaded and connected to the backend
+                  </td>
+                  <td>
+                    <code>null</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <code>open</code>
+                  </td>
+                  <td>
+                    When the widget is open
+                  </td>
+                  <td>
+                    <code>{ 'by': 'new_message' }</code>&nbsp;in&nbsp;<code>['user', 'external_link', 'new_message']</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <code>close</code>
+                  </td>
+                  <td>
+                    When the widget is closed
+                  </td>
+                  <td>
+                    <code>{ 'by': 'new_message' }</code>&nbsp;in&nbsp;<code>['user', 'external_link', 'new_message']</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <code>sent_message</code>
+                  </td>
+                  <td>
+                    When the user sent a message
+                  </td>
+                  <td>
+                    <code>{ 'message': 'Hello', 'from': guest_id }</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <code>recieved_message</code>
+                  </td>
+                  <td>
+                    When the user recieved a message
+                  </td>
+                  <td>
+                    <code>{ 'message': 'Hello', 'from': 'Rémi D.' }</code>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+        </article>
+        <!-- END Main content -->
+      </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-rc1/jquery.min.js"></script>
+    <script src="/assets/main.js"></script>
+</body>
+</html>
