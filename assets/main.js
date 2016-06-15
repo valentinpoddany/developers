@@ -7,5 +7,5 @@ var scriptTag = document.createElement('script');
 scriptTag.src = 'https://cdn.slaask.com/chat.js';
 document.getElementsByTagName('head')[0].appendChild(scriptTag);
 scriptTag.onload = function() {
-  _slaask.init('6e32de720b47555bdc81696b3fa955b1');
+  _slaask.init('ef8f4787e310a053be820c434e35ea2c');
 }
