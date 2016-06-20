@@ -17,11 +17,11 @@
       <li>
         <a class="active has-child open" href="#">Javascript SDK</a>
         <ul class="active open">
-          <li><a href="/javascript-sdk/why-a-javascript-sdk.html">Why a Javascript SDK?</a></li>
+          <li><a href="/javascript-sdk/why-a-javascript-sdk.html">Why Javascript SDK?</a></li>
           <li><a href="/javascript-sdk/initializing-the-widget.html">Initializing the widget</a></li>
           <li><a href="/javascript-sdk/
-getting-more-information.html">Getting more information about your visitors</a></li>
-          <li><a href="/javascript-sdk/master-your-widget.html">Master your widget</a></li>
+getting-more-information.html">Gathering more information about your visitors</a></li>
+          <li><a href="/javascript-sdk/master-your-widget.html">Mastering your widget</a></li>
           <li><a class="active" href="/javascript-sdk/javascript-sdk-functions.html">Functions</a></li>
           <li><a href="/javascript-sdk/javascript-sdk-events.html">Events</a></li>
         </ul>
@@ -117,7 +117,7 @@ getting-more-information.html">Getting more information about your visitors</a><
                     <code>_slaask.message(message, from, { 'text': button_text, 'link': button_link })</code>
                   </td>
                   <td>
-                    Send a new message and trigger&nbsp;<code>slaask.recieved_message</code>&nbsp;event<br><br><code>from</code>&nbsp;attribute is optionnal, by default, we will take the widget support displaying name
+                    Send a new message and trigger&nbsp;<code>slaask.recieved_message</code>&nbsp;event<br><br><code>from</code>&nbsp;this attribute is optional. By default, we will use the widget "support displaying name"
                   </td>
                 </tr>
                 <tr>
@@ -125,7 +125,7 @@ getting-more-information.html">Getting more information about your visitors</a><
                     <code>_slaask.identify(display_name, more)</code>
                   </td>
                   <td>
-                    <a href="getting-more-information.html">More informations here</a>
+                    <a href="getting-more-information.html">More information can be found here</a>
                   </td>
                 </tr>
                 <tr>
@@ -133,7 +133,7 @@ getting-more-information.html">Getting more information about your visitors</a><
                     <code>_slaask.updateVisitorInfos(infos, callback)</code>
                   </td>
                   <td>
-                    This function allow you to update programatically your visitors or user on page runtime. The <code>infos</code> parameter should be an <code>Object</code> containing <b>one or both</b> of those keys: <code>user_infos</code> and <code>current_page</code>. The <code>user_infos</code> key is also used on the <a href="getting-more-information.html"><code>_slaask.identify</code> function</a> and should ne an <code>Object</code> too.
+                    This function allows you to programmatically update your visitors' or users' on-page runtime. The <code>infos</code> parameter should be an <code>Object</code> containing <b>one or both</b> of the following keys: <code>user_infos</code> and <code>current_page</code>. The <code>user_infos</code> key is also used on the <a href="getting-more-information.html"><code>_slaask.identify</code> function</a> and should be an <code>Object</code> as well.
                   </td>
                 </tr>
                 <tr>
@@ -141,7 +141,7 @@ getting-more-information.html">Getting more information about your visitors</a><
                     <code>_slaask.sendMessageToSlack(message, callback)</code>
                   </td>
                   <td>
-                    Send any message to the visitor or user dedicated Slack channel.
+                    Send any message to a visitor's or user's dedicated Slack channel.
                   </td>
                 </tr>
                 <tr>
@@ -149,7 +149,7 @@ getting-more-information.html">Getting more information about your visitors</a><
                     <code>_slaask.auth(unique_identifier)</code>
                   </td>
                   <td>
-                    Allow you to load the full widget dynamically for any of your users. <br><br> <u>Ex.</u><br>Someone is connected on your Single Page App with his account <code>ID 1234</code>. He logout, and someone else connect himself to his own account <code>ID 5678</code> on the same computer. You just have to call <code>_slaask.auth('a-unique-token-for-user-5678')</code> and the widget will be fully reloaded with user 5678 information and conversations.
+                    Allows you to load the full widget dynamically for any of your users. <br><br> <u>Ex.</u><br>A user is logged in on your Single Page App via their account <code>ID 1234</code>. They log out, and another user logs in via their own account <code>ID 5678</code> on the same computer. You simply have to call <code>_slaask.auth('a-unique-token-for-user-5678')</code> and the widget will be fully reloaded with user 5678's information and conversation history.
                   </td>
                 </tr>
               </tbody>
