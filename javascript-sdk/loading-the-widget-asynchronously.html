@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Gathering more information about your visitors</title>
+  <title>Loading the widget asynchronously</title>
   <link rel="shortcut icon" type="image/x-icon" href="https://cdn.slaask.com/favicon.png" />
   <link rel="stylesheet" href="/assets/main.css">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
@@ -19,8 +19,8 @@
         <ul class="active open">
           <li><a href="/javascript-sdk/why-a-javascript-sdk.html">Why Javascript SDK?</a></li>
           <li><a href="/javascript-sdk/initializing-the-widget.html">Initializing the widget</a></li>
-          <li><a href="/javascript-sdk/loading-the-widget-asynchronously.html">Loading the widget asynchronously</a></li>
-          <li><a class="active" href="/javascript-sdk/getting-more-information.html">Gathering more information about your visitors</a></li>
+          <li><a class="active" href="/javascript-sdk/loading-the-widget-asynchronously.html">Loading the widget asynchronously</a></li>
+          <li><a href="/javascript-sdk/getting-more-information.html">Gathering more information about your visitors</a></li>
           <li><a href="/javascript-sdk/master-your-widget.html">Mastering your widget</a></li>
           <li><a href="/javascript-sdk/javascript-sdk-functions.html">Functions</a></li>
           <li><a href="/javascript-sdk/javascript-sdk-events.html">Events</a></li>
@@ -80,22 +80,40 @@
         <article class="main-content" role="main">
 
           <header>
-            <h1>Gathering more information about your visitors</h1>
+            <h1>Loading the widget asynchronously</h1>
           </header>
 
           <section>
-            <p>If you are using Slaask while your visitors are logged in, we have provided a way for you to gather more information about them (name, email, new or returning visitor, etc.). Use the code snippet on the right to enable this feature:</p>
-            <pre class="line-numbers language-markup" data-language="markup">&lt;script src='https://cdn.slaask.com/chat.js'&gt;&lt;/script&gt;
-&lt;script&gt;
-    _slaask.identify('JackieChan', {
-        user_id: 1234,
-        email: 'jackie@chan.com',
-        speciality: 'martial artist'
-    });
-    _slaask.init('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', { visitor_token: 'An-unique-visitor-attribute' });
+            <p>
+              When you load JavaScript from a third party you could do it asynchronously.
+              <br>
+              <br>
+              There are two reasons for this:
+              <br>
+              <ul>
+                <li>If the third-party goes down or is slow, your page won't be held up trying to load that resource.</li>
+                <li>It can speed up page loads.</li>
+              </ul>
+              <b>Here's a way to load Slaask async style:</b>
+            </p>
+            <pre class="line-numbers language-markup" data-language="markup">&lt;script&gt;
+  (function() {
+    var slk = document.createElement('script');
+    slk.src = 'https://cdn.slaask.com/chat.js';
+    slk.type = 'text/javascript';
+    slk.async = 'true';
+    slk.onload = slk.onreadystatechange = function() {
+      var rs = this.readyState;
+      if (rs && rs != 'complete' && rs != 'loaded') return;
+      try {
+        _slaask.init('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
+      } catch (e) {}
+    };
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(slk, s);
+  })();
 &lt;/script&gt;
             </pre>
-            <p>Replace <code>An-unique-visitor-attribute</code> <i>(the second attribute of the <code>_slaask.init</code> function)</i> with a <b>UNIQUE</b> identifier for your visitor. This attriube will be used to identify your visitor in order to retreive his conversation history and information.</p>
           </section>
 
         </article>
