@@ -84,23 +84,120 @@
           </header>
 
           <section>
-            <p>If you are using Slaask while your visitors are logged in, we have provided a way for you to gather more information about them (name, email, new or returning visitor, etc.). Use this code snippet to enable this feature:</p>
-            <pre class="line-numbers language-markup" data-language="markup">&lt;script src='https://cdn.slaask.com/chat.js'&gt;&lt;/script&gt;
+            <p>These instructions walk you through installing Slaask on your site for <b>logged-in users of your product</b>. With this feature, you can track account data and have conversations with your users via Slaask.</p>
+
+            <p>The basic Javascript method is a good fit for most standard web apps which are characterized by each new page view triggering a full page refresh.</p>
+
+            <p>Copy and paste this code snippet before the <code>&lt;/body&gt;</code> tag on every page where you want Slaask to appear for logged-in users.</p>
+
+            <div class="code-window">
+              <div class="window-bar">
+                <div class="circles">
+                  <span class="circle circle-red"></span> <span class="circle circle-yellow"></span> <span class="circle circle-green"></span>
+                </div>
+                <div class="languages">
+                  <div class="btn-group" data-toggle="buttons">
+                    <label id="btn-javascript" class="btn active">javascript</label>
+                    <label id="btn-rails" class="btn">ruby (rails)</label>
+                    <label id="btn-django" class="btn">python (django)</label>
+                    <label id="btn-php" class="btn">php</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="window-content">
+                <pre id="javascript" class="line-numbers" data-language="markup">
+
+&lt;script src='https://cdn.slaask.com/chat.js'&gt;&lt;/script&gt;
+
 &lt;script&gt;
-    _slaask.identify('JackieChan', {
-        user_id: 1234,
-        email: 'jackie@chan.com',
-        speciality: 'martial artist'
+    _slaask.identify(<span class="token property">'JackieChan'</span>, {
+        user_id: <span class="token property">1234</span>,
+        email: <span class="token property">'jackie@chan.com'</span>,
+        speciality: <span class="token property">'martial artist'</span>
     });
-    _slaask.init('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', { visitor_token: 'A-unique-visitor-attribute' });
+
+    _slaask.init('<span class="token blue-property">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>', { visitor_token: <span class="token property">'a-unique-visitor-attribute'</span> });
 &lt;/script&gt;
-            </pre>
-            <p>Replace <code>A-unique-visitor-attribute</code> <i>(the second attribute of the <code>_slaask.init</code> function)</i> with a <b>UNIQUE</b> identifier for your visitor. This attribute will be used to identify your visitor in order to retrieve their conversation history and information.</p>
+                </pre>
+
+                <pre id="rails" class="line-numbers hidden">
+
+&lt;script src='https://cdn.slaask.com/chat.js'&gt;&lt;/script&gt;
+
+<em>&lt;!-- Set your API key in: <span class="token blue-property">ENV["SLAASK_API_KEY"]</span> --&gt;</em>
+
+&lt;% if user_signed_in? %&gt;
+  &lt;script&gt;
+    _slaask.identify('<span class="token property">&lt;%= current_user.firstname %&gt;</span>', {
+      user_id: <span class="token property">&lt;%= current_user.id %&gt;</span>,
+      email: '<span class="token property">&lt;%= current_user.email %&gt;</span>',
+      speciality: '<span class="token property">&lt;%= current_user.speciality %&gt;</span>'
+    });
+
+    _slaask.init('<span class="token blue-property">&lt;%= ENV["SLAASK_API_KEY"] %&gt;</span>', { visitor_token: '<span class="token property">&lt;%= current_user.id %&gt;</span>' });
+  &lt;/script&gt;
+&lt;% else %&gt;
+  &lt;script&gt;
+    _slaask.init('<span class="token blue-property">&lt;%= ENV["SLAASK_API_KEY"] %&gt;</span>');
+  &lt;/script&gt;
+&lt;% end %&gt;
+                </pre>
+
+                <pre id="django" class="line-numbers hidden">
+
+&lt;script src='https://cdn.slaask.com/chat.js'&gt;&lt;/script&gt;
+
+{% if request.user.logged_in %}
+  &lt;script&gt;
+    _slaask.identify('<span class="token property">{{ current_user.firstname }}</span>', {
+      user_id: <span class="token property">{{ current_user.id }}</span>,
+      email: '<span class="token property">{{ current_user.email }}</span>',
+      speciality: '<span class="token property">{{ current_user.speciality }}</span>'
+    });
+
+    _slaask.init('<span class="token blue-property">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>', { visitor_token: '<span class="token property">{{ current_user.id }}</span>' });
+  &lt;/script&gt;
+{% else %}
+  &lt;script&gt;
+    _slaask.init('<span class="token blue-property">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>');
+  &lt;/script&gt;
+{% endif %}
+                </pre>
+
+                <pre id="php" class="line-numbers hidden">
+
+&lt;script src='https://cdn.slaask.com/chat.js'&gt;&lt;/script&gt;
+
+&lt;?php if (isset($current_user)): ?&gt;
+  &lt;script&gt;
+    _slaask.identify('<span class="token property">&lt;?php echo $current_user->firstname ?&gt;</span>', {
+      user_id: <span class="token property">&lt;?php echo $current_user->id ?&gt;</span>,
+      email: '<span class="token property">&lt;?php echo $current_user->email ?&gt;</span>',
+      speciality: '<span class="token property">&lt;?php echo $current_user->speciality ?&gt;</span>'
+    });
+
+    _slaask.init('<span class="token blue-property">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>', { visitor_token: '<span class="token property">&lt;?php echo $current_user->id ?&gt;</span>' });
+  &lt;/script&gt;
+&lt;?php else: ?&gt;
+  &lt;script&gt;
+    _slaask.init('<span class="token blue-property">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>');
+  &lt;/script&gt;
+&lt;?php endif; ?&gt;
+                </pre>
+              </div>
+            </div>
+
+            <p>Make sure you replace the example user data (<u class="hover-swag">highlighted in <span class="token property">pink</span></u>) with your own code that inserts real user data for the currently logged-in user on each of your pages.</p>
+
+            <p>Replace <code>a-unique-visitor-attribute</code> <i>(the second attribute of the <code>_slaask.init</code> function)</i> with a <b>UNIQUE</b> identifier for your visitor. This attriube will be used to identify your visitor in order to retrieve his conversation history and information.</p>
           </section>
 
         </article>
         <!-- END Main content -->
       </div>
     </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-rc1/jquery.min.js"></script>
+    <script src="/assets/main.js"></script>
 </body>
 </html>
