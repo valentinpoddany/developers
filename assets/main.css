@@ -28,3 +28,15 @@ html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:1
 .hover-swag {
   cursor: pointer;
 }
+
+.slaask-widget-container {
+    background-image: url(https://cdn.slaask.com/paterns/geometry.png);
+    background-size: 412px 412;
+    background-repeat: repeat;
+}
+
+.slaask-messages {
+    background-image: url(https://cdn.slaask.com/paterns/geometry.png);
+    background-size: 412px 412;
+    background-repeat: repeat;
+}
