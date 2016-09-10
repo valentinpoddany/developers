@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Mastering your widget</title>
+  <title>DOC Mastering your widget</title>
   <link rel="stylesheet" href="/assets/main.css">
   <link rel="shortcut icon" type="image/x-icon" href="https://cdn.slaask.com/favicon.png" />
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
@@ -10,30 +10,10 @@
 <body>
   <aside class="sidebar sidebar-boxed">
 
-    <a class="sidebar-brand" href="/index.html"><img src="https://cdn.slaask.com/slaask_logo_lg.png" alt="logo"></a>
+    <a class="sidebar-brand" href="/"><img src="https://cdn.slaask.com/slaask_logo_lg.png" alt="logo"></a>
 
     <ul class="sidenav dropable sticky" style="height: 649px;position: static;">
-      <li><a href="/" class="active">Overview</a></li>
-      <li>
-        <a class="active has-child open" href="#">Javascript SDK</a>
-        <ul class="active open">
-          <li><a href="/javascript-sdk/why-a-javascript-sdk.html">Why Javascript SDK?</a></li>
-          <li><a href="/javascript-sdk/initializing-the-widget.html">Initializing the widget</a></li>
-          <li><a href="/javascript-sdk/loading-the-widget-asynchronously.html">Loading the widget asynchronously</a></li>
-          <li><a href="/javascript-sdk/getting-more-information.html">Gathering more information about your visitors</a></li>
-          <li><a class="active" href="/javascript-sdk/master-your-widget.html">Mastering your widget</a></li>
-          <li><a href="/javascript-sdk/javascript-sdk-functions.html">Functions</a></li>
-          <li><a href="/javascript-sdk/javascript-sdk-events.html">Events</a></li>
-        </ul>
-      </li>
-
-      <li>
-        <a href="#" class="has-child">Design</a>
-        <ul>
-          <li><a href="/design/slaask-branding.html">Slaask Brand Guidelines</a></li>
-          <li><a href="/design/slaask-logos.html">Slaask Logos</a></li>
-        </ul>
-      </li>
+      <li><a href="/">Overview</a></li><li><a class="active open has-child" href="#">Javascript SDK</a><ul><li><a href="/javascript-sdk/why-a-javascript-sdk.html">Why do we use a Javascript API?</a></li><li><a href="/javascript-sdk/initializing-the-widget.html">Initializing the widget</a></li><li><a href="/javascript-sdk/loading-the-widget-asynchronously.html">Loading the widget asynchronously</a></li><li><a href="/javascript-sdk/getting-more-information.html">Gathering more information about your visitors</a></li><li><a class="active" href="/javascript-sdk/master-your-widget.html">Mastering your widget</a></li><li><a href="/javascript-sdk/javascript-sdk-functions.html">Functions</a></li><li><a href="/javascript-sdk/javascript-sdk-events.html">Events</a></li></ul></li><li><a class="has-child" href="#">Design</a><ul><li><a href="/design/adjusting-widget-position.html">Adjusting the position of the widget's button</a></li><li><a href="/design/slaask-branding.html">Slaask Brand Guidelines</a></li><li><a href="/design/slaask-logos.html">Slaask Logos</a></li></ul></li>
     </ul>
 
   </aside>
@@ -63,7 +43,7 @@
             <li class="active"><a href="/">Documentation</a></li>
             <li><a href="https://slaask.zendesk.com/hc/en-us" target="_blank">FAQ</a></li>
             <li class="hero">
-<a href="#" class="slaask-open-widget">Support</a></li>
+            <a href="#" class="slaask-open-widget">Support</a></li>
           </ul>
         </div>
         <!-- END Top navbar -->
@@ -73,44 +53,44 @@
     <!-- END Top navbar & branding -->
 
   </header>
-  <main class="container-fluid">
-      <div class="row">
+<main class="container-fluid">
+  <div class="row">
 
-        <!-- Main content -->
-        <article class="main-content" role="main">
+    <!-- Main content -->
+    <article class="main-content" role="main">
 
-          <header>
-            <h1>Mastering your widget</h1>
-            <ol class="toc">
-              <li><a href="#open-your-widget-from-a-button">Opening your widget from an item/button</a></li>
-              <li><a href="#variations">Variations</a></li>
-            </ol>
-          </header>
+      <header>
+        <h1>Mastering your widget</h1>
+        <ol class="toc">
+          <li><a href="#open-your-widget-from-a-button">Opening your widget from an item/button</a></li>
+          <li><a href="#variations">Variations</a></li>
+        </ol>
+      </header>
 
-          <section>
-            <h2 id="open-your-widget-from-a-button"><a href="#open-your-widget-from-a-button">Opening your widget from an item/button</a></h2>
-            <p>To code a button or a menu navigation item on your site that will open the Slaask widget, you have two choices:</p>
-            <h3>From a URL</h5>
-            <p>To automatically open the Slaask widget when someone lands on a page, please add "#chat-open" to the end of the URL.</p>
-            <p>Here is an example:</p>
-            <p><code>https://your-website.com/products#chat-open</code></p>
-            <h3>From a CSS Class</h3>
-            <p>To open the Slaask widget from a button, simply add the <code>slaask-open-widget</code> class to the button.</p>
-            <p>Here is an example:</p>
-            <pre>&lt;a href="#" class="<b>slaask-open-widget</b>"&gt;Click Me!&lt;/a&gt;</pre>
-            <p>Note: the <code>slaask-open-widget</code> ID also works in all the HTML tags that accept the "id" parameter.</p>
-            <h3>From a CSS ID</h3>
-            <p>To open the Slaask widget from a button, simply add the <code>slaask-open-widget</code> id to the button.</p>
-            <p>Here is an example:</p>
-            <pre>&lt;button type="button" id="<b>slaask-open-widget</b>"&gt;Click Me!&lt;/button&gt;</pre>
-            <p>Note: the <code>slaask-open-widget</code> ID also works in all the HTML tags that accept the "id" parameter.</p>
+      <section>
+        <h2 id="open-your-widget-from-a-button"><a href="#open-your-widget-from-a-button">Opening your widget from an item/button</a></h2>
+        <p>To code a button or a menu navigation item on your site that will open the Slaask widget, you have two choices:</p>
+        <h3>From a URL</h5>
+        <p>To automatically open the Slaask widget when someone lands on a page, please add "#chat-open" to the end of the URL.</p>
+        <p>Here is an example:</p>
+        <p><code>https://your-website.com/products#chat-open</code></p>
+        <h3>From a CSS Class</h3>
+        <p>To open the Slaask widget from a button, simply add the <code>slaask-open-widget</code> class to the button.</p>
+        <p>Here is an example:</p>
+        <pre>&lt;a href="#" class="<b>slaask-open-widget</b>"&gt;Click Me!&lt;/a&gt;</pre>
+        <p>Note: the <code>slaask-open-widget</code> ID also works in all the HTML tags that accept the "id" parameter.</p>
+        <h3>From a CSS ID</h3>
+        <p>To open the Slaask widget from a button, simply add the <code>slaask-open-widget</code> id to the button.</p>
+        <p>Here is an example:</p>
+        <pre>&lt;button type="button" id="<b>slaask-open-widget</b>"&gt;Click Me!&lt;/button&gt;</pre>
+        <p>Note: the <code>slaask-open-widget</code> ID also works in all the HTML tags that accept the "id" parameter.</p>
 
-          </section>
+      </section>
 
-        </article>
-        <!-- END Main content -->
-      </div>
-    </main>
+    </article>
+    <!-- END Main content -->
+  </div>
+</main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-rc1/jquery.min.js"></script>
     <script src="/assets/main.js"></script>
 </body>

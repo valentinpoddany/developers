@@ -1,0 +1,96 @@
+<main class="container-fluid">
+  <div class="row">
+
+    <!-- Main content -->
+    <article class="main-content" role="main">
+
+      <header>
+        <h1>Events</h1>
+      </header>
+
+      <section>
+        <p>Use this code snippet to listen to audio recordings of Slaask events:</p>
+
+        <pre class="line-numbers language-markup" data-language="markup">document.addEventListener('slaask.open', function (e) {
+    console.log(e.type + ' - by: ' + e.detail.by);
+}, false);
+        </pre>
+        <h3>Available events:</h3>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>
+                Event type
+              </th>
+              <th>
+                Description
+              </th>
+              <th>
+                Event details
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <code>ready</code>
+              </td>
+              <td>
+                When the widget is loaded and connected to the backend
+              </td>
+              <td>
+                <code>null</code>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <code>open</code>
+              </td>
+              <td>
+                When the widget is open
+              </td>
+              <td>
+                <code>{ 'by': 'new_message' }</code>&nbsp;in&nbsp;<code>['user', 'external_link', 'new_message']</code>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <code>close</code>
+              </td>
+              <td>
+                When the widget is closed
+              </td>
+              <td>
+                <code>{ 'by': 'new_message' }</code>&nbsp;in&nbsp;<code>['user', 'external_link', 'new_message']</code>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <code>sent_message</code>
+              </td>
+              <td>
+                When the user has sent a message
+              </td>
+              <td>
+                <code>{ 'message': 'Hello', 'from': guest_id }</code>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <code>recieved_message</code>
+              </td>
+              <td>
+                When the user has received a message
+              </td>
+              <td>
+                <code>{ 'message': 'Hello', 'from': 'Rémi D.' }</code>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+    </article>
+    <!-- END Main content -->
+  </div>
+</main>

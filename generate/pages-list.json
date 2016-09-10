@@ -1,0 +1,23 @@
+{
+  "index": { "title": "Overview" },
+  "javascript-sdk": {
+    "name": "Javascript SDK",
+    "pages": {
+      "why-a-javascript-sdk": { "title": "Why do we use a Javascript API?" },
+      "initializing-the-widget": { "title": "Initializing the widget" },
+      "loading-the-widget-asynchronously": { "title": "Loading the widget asynchronously" },
+      "getting-more-information": { "title": "Gathering more information about your visitors" },
+      "master-your-widget": { "title": "Mastering your widget" },
+      "javascript-sdk-functions": { "title": "Functions" },
+      "javascript-sdk-events": { "title": "Events" }
+    }
+  },
+  "design": {
+    "name": "Design",
+    "pages": {
+      "adjusting-widget-position": { "title": "Adjusting the position of the widget's button" },
+      "slaask-branding": { "title": "Slaask Brand Guidelines" },
+      "slaask-logos": { "title": "Slaask Logos" }
+    }
+  }
+}

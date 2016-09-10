@@ -2,38 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Loading the widget asynchronously</title>
-  <link rel="shortcut icon" type="image/x-icon" href="https://cdn.slaask.com/favicon.png" />
+  <title>DOC Loading the widget asynchronously</title>
   <link rel="stylesheet" href="/assets/main.css">
+  <link rel="shortcut icon" type="image/x-icon" href="https://cdn.slaask.com/favicon.png" />
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 </head>
 <body>
   <aside class="sidebar sidebar-boxed">
 
-    <a class="sidebar-brand" href="/index.html"><img src="https://cdn.slaask.com/slaask_logo_lg.png" alt="logo"></a>
+    <a class="sidebar-brand" href="/"><img src="https://cdn.slaask.com/slaask_logo_lg.png" alt="logo"></a>
 
     <ul class="sidenav dropable sticky" style="height: 649px;position: static;">
-      <li><a href="/" class="active">Overview</a></li>
-      <li>
-        <a class="active has-child open" href="#">Javascript SDK</a>
-        <ul class="active open">
-          <li><a href="/javascript-sdk/why-a-javascript-sdk.html">Why Javascript SDK?</a></li>
-          <li><a href="/javascript-sdk/initializing-the-widget.html">Initializing the widget</a></li>
-          <li><a class="active" href="/javascript-sdk/loading-the-widget-asynchronously.html">Loading the widget asynchronously</a></li>
-          <li><a href="/javascript-sdk/getting-more-information.html">Gathering more information about your visitors</a></li>
-          <li><a href="/javascript-sdk/master-your-widget.html">Mastering your widget</a></li>
-          <li><a href="/javascript-sdk/javascript-sdk-functions.html">Functions</a></li>
-          <li><a href="/javascript-sdk/javascript-sdk-events.html">Events</a></li>
-        </ul>
-      </li>
-
-      <li>
-        <a href="#" class="has-child">Design</a>
-        <ul>
-          <li><a href="/design/slaask-branding.html">Slaask Brand Guidelines</a></li>
-          <li><a href="/design/slaask-logos.html">Slaask Logos</a></li>
-        </ul>
-      </li>
+      <li><a href="/">Overview</a></li><li><a class="active open has-child" href="#">Javascript SDK</a><ul><li><a href="/javascript-sdk/why-a-javascript-sdk.html">Why do we use a Javascript API?</a></li><li><a href="/javascript-sdk/initializing-the-widget.html">Initializing the widget</a></li><li><a class="active" href="/javascript-sdk/loading-the-widget-asynchronously.html">Loading the widget asynchronously</a></li><li><a href="/javascript-sdk/getting-more-information.html">Gathering more information about your visitors</a></li><li><a href="/javascript-sdk/master-your-widget.html">Mastering your widget</a></li><li><a href="/javascript-sdk/javascript-sdk-functions.html">Functions</a></li><li><a href="/javascript-sdk/javascript-sdk-events.html">Events</a></li></ul></li><li><a class="has-child" href="#">Design</a><ul><li><a href="/design/adjusting-widget-position.html">Adjusting the position of the widget's button</a></li><li><a href="/design/slaask-branding.html">Slaask Brand Guidelines</a></li><li><a href="/design/slaask-logos.html">Slaask Logos</a></li></ul></li>
     </ul>
 
   </aside>
@@ -63,7 +43,7 @@
             <li class="active"><a href="/">Documentation</a></li>
             <li><a href="https://slaask.zendesk.com/hc/en-us" target="_blank">FAQ</a></li>
             <li class="hero">
-<a href="#" class="slaask-open-widget">Support</a></li>
+            <a href="#" class="slaask-open-widget">Support</a></li>
           </ul>
         </div>
         <!-- END Top navbar -->
@@ -73,30 +53,30 @@
     <!-- END Top navbar & branding -->
 
   </header>
-  <main class="container-fluid">
-      <div class="row">
+<main class="container-fluid">
+  <div class="row">
 
-        <!-- Main content -->
-        <article class="main-content" role="main">
+    <!-- Main content -->
+    <article class="main-content" role="main">
 
-          <header>
-            <h1>Loading the widget asynchronously</h1>
-          </header>
+      <header>
+        <h1>Loading the widget asynchronously</h1>
+      </header>
 
-          <section>
-            <p>
-              When you load JavaScript from a third party you could do it asynchronously.
-              <br>
-              <br>
-              There are two reasons for this:
-              <br>
-              <ul>
-                <li>If the third-party goes down or is slow, your page won't be held up trying to load that resource.</li>
-                <li>It can speed up page loads.</li>
-              </ul>
-              <b>Here's a way to load Slaask async style:</b>
-            </p>
-            <pre class="line-numbers language-markup" data-language="markup">&lt;script&gt;
+      <section>
+        <p>
+          When you load JavaScript from a third party you could do it asynchronously.
+          <br>
+          <br>
+          There are two reasons for this:
+          <br>
+          <ul>
+            <li>If the third-party goes down or is slow, your page won't be held up trying to load that resource.</li>
+            <li>It can speed up page loads.</li>
+          </ul>
+          <b>Here's a way to load Slaask async style:</b>
+        </p>
+        <pre class="line-numbers language-markup" data-language="markup">&lt;script&gt;
   (function() {
     var slk = document.createElement('script');
     slk.src = 'https://cdn.slaask.com/chat.js';
@@ -113,12 +93,14 @@
     s.parentNode.insertBefore(slk, s);
   })();
 &lt;/script&gt;
-            </pre>
-          </section>
+        </pre>
+      </section>
 
-        </article>
-        <!-- END Main content -->
-      </div>
-    </main>
+    </article>
+    <!-- END Main content -->
+  </div>
+</main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-rc1/jquery.min.js"></script>
+    <script src="/assets/main.js"></script>
 </body>
 </html>
