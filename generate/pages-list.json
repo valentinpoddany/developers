@@ -10,7 +10,8 @@
       "master-your-widget": { "title": "Mastering your widget" },
       "javascript-sdk-functions": { "title": "Functions" },
       "javascript-sdk-events": { "title": "Events" },
-      "open-slaask-from-button": { "title": "Opening Slaask from an item/button" }
+      "open-slaask-from-button": { "title": "Opening Slaask from an item/button" },
+      "single-page-application": { "title": "Making Slaask work with Single-Page Application" }
     }
   },
   "design": {

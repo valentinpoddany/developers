@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Adjusting your widget's icon position</title>
+  <title>Making Slaask work with Single-Page Application</title>
   <link rel="stylesheet" href="/assets/main.css">
   <link rel="shortcut icon" type="image/x-icon" href="https://cdn.slaask.com/favicon.png" />
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
@@ -13,7 +13,7 @@
     <a class="sidebar-brand" href="/"><img src="https://cdn.slaask.com/slaask_logo_lg.png" alt="logo"></a>
 
     <ul class="sidenav dropable sticky" style="height: 649px;position: static;">
-      <li><a href="/">Overview</a></li><li><a class="has-child" href="#">Javascript SDK</a><ul><li><a href="/javascript-sdk/why-a-javascript-sdk.html">Why do we use a Javascript API?</a></li><li><a href="/javascript-sdk/initializing-the-widget.html">Initializing the widget</a></li><li><a href="/javascript-sdk/loading-the-widget-asynchronously.html">Loading the widget asynchronously</a></li><li><a href="/javascript-sdk/getting-more-information.html">Gathering more information about your visitors</a></li><li><a href="/javascript-sdk/master-your-widget.html">Mastering your widget</a></li><li><a href="/javascript-sdk/javascript-sdk-functions.html">Functions</a></li><li><a href="/javascript-sdk/javascript-sdk-events.html">Events</a></li><li><a href="/javascript-sdk/open-slaask-from-button.html">Opening Slaask from an item/button</a></li><li><a href="/javascript-sdk/single-page-application.html">Making Slaask work with Single-Page Application</a></li></ul></li><li><a class="active open has-child" href="#">Design</a><ul><li><a class="active" href="/design/adjusting-widget-position.html">Adjusting your widget's icon position</a></li><li><a href="/design/slaask-branding.html">Slaask Brand Guidelines</a></li><li><a href="/design/slaask-logos.html">Slaask Logos</a></li></ul></li>
+      <li><a href="/">Overview</a></li><li><a class="active open has-child" href="#">Javascript SDK</a><ul><li><a href="/javascript-sdk/why-a-javascript-sdk.html">Why do we use a Javascript API?</a></li><li><a href="/javascript-sdk/initializing-the-widget.html">Initializing the widget</a></li><li><a href="/javascript-sdk/loading-the-widget-asynchronously.html">Loading the widget asynchronously</a></li><li><a href="/javascript-sdk/getting-more-information.html">Gathering more information about your visitors</a></li><li><a href="/javascript-sdk/master-your-widget.html">Mastering your widget</a></li><li><a href="/javascript-sdk/javascript-sdk-functions.html">Functions</a></li><li><a href="/javascript-sdk/javascript-sdk-events.html">Events</a></li><li><a href="/javascript-sdk/open-slaask-from-button.html">Opening Slaask from an item/button</a></li><li><a class="active" href="/javascript-sdk/single-page-application.html">Making Slaask work with Single-Page Application</a></li></ul></li><li><a class="has-child" href="#">Design</a><ul><li><a href="/design/adjusting-widget-position.html">Adjusting your widget's icon position</a></li><li><a href="/design/slaask-branding.html">Slaask Brand Guidelines</a></li><li><a href="/design/slaask-logos.html">Slaask Logos</a></li></ul></li>
     </ul>
 
   </aside>
@@ -53,29 +53,34 @@
     <!-- END Top navbar & branding -->
 
   </header>
-<main class="container-fluid">
+a<main class="container-fluid">
   <div class="row">
 
     <!-- Main content -->
     <article class="main-content" role="main">
 
       <header>
-        <h1>Adjusting your widget's icon position</h1>
+        <h1>Making Slaask work with Single-Page Application (SPA)</h1>
       </header>
 
       <section>
-        <p>
-          If you would like to adjust your widget's icon position in case it's hiding content or for any other reason, you can add this CSS code to your webpage:
-        </p>
-        <pre class="line-numbers language-markup" data-language="markup">&lt;style&gt;
-  #slaask-button, #slaask-message {
-    transform: translate(<span class="token property">XXX</span>px, <span class="token property">YYY</span>px);
-  }
-&lt;/style&gt;
-        </pre>
-        <p>
-          Replace the <span class="token property">XXX</span> and <span class="token property">YYY</span> with the number of pixels you'd like to move your widget's icon.
-        </p>
+        <p>Here is a way to handle visitor's current page updates:</p>
+        <p>There is a function called <code>updateVisitorInfos</code>. This function, available from the _slaask global object, will force an update of the visitor information with an API call.</p><br/>
+
+        <pre>_slaask.updateVisitorInfos();</pre>
+
+        <b>or</b>
+
+        <pre>_slaask.updateVisitorInfos({}, function(data) { 
+  console.log(data);
+});</pre><br/>
+
+        <p>With the <b>first argument</b>, you can override the <code>user_infos</code> object (<code>_slaask.user_infos</code>) and/or the visitor’s current page (by default, <code>window.location.href</code>).</p>
+
+        <p>The <b>second argument</b> is a simple callback function in case you want to handle our API response.</p>
+
+        <br/><p>Both arguments are optional.</p>
+
       </section>
 
     </article>
