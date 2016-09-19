@@ -13,8 +13,11 @@
           If you would like to adjust your widget's icon position in case it's hiding content or for any other reason, you can add this CSS code to your webpage:
         </p>
         <pre class="line-numbers language-markup" data-language="markup">&lt;style&gt;
-  #slaask-button, #slaask-message {
+  #slaask-button, #slaask-message, #slaask-widget.slaask-mini {
     transform: translate(<span class="token property">XXX</span>px, <span class="token property">YYY</span>px);
+  }
+  #slaask-widget.slaask-mini {
+    animation-name: animUnfoldToTopSafe; -webkit-animation-name: animUnfoldToTopSafe;
   }
 &lt;/style&gt;
         </pre>
