@@ -1,16 +1,16 @@
-a<main class="container-fluid">
+<main class="container-fluid">
   <div class="row">
 
     <!-- Main content -->
     <article class="main-content" role="main">
 
       <header>
-        <h1>Making Slaask work with Single-Page Application (SPA)</h1>
+        <h1>Enabling Slaask to work with Single-Page Application (SPA)</h1>
       </header>
 
       <section>
-        <p>Here is a way to handle visitor's current page updates:</p>
-        <p>There is a function called <code>updateVisitorInfos</code>. This function, available from the _slaask global object, will force an update of the visitor information with an API call.</p><br/>
+        <p>Here is a way to handle visitors' current page updates:</p>
+        <p>There is a function called <code>updateVisitorInfos</code>. This function, available from the _slaask global object, will force an update of the visitor's information using an API call.</p><br/>
 
         <pre>_slaask.updateVisitorInfos();</pre>
 
@@ -22,7 +22,7 @@ a<main class="container-fluid">
 
         <p>With the <b>first argument</b>, you can override the <code>user_infos</code> object (<code>_slaask.user_infos</code>) and/or the visitor’s current page (by default, <code>window.location.href</code>).</p>
 
-        <p>The <b>second argument</b> is a simple callback function in case you want to handle our API response.</p>
+        <p>The <b>second argument</b> is a simple callback function in case you want to handle our API response yourself.</p>
 
         <br/><p>Both arguments are optional.</p>
 
