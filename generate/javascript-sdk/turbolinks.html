@@ -12,10 +12,19 @@
         <p>When using Slaask with Turbolinks, the widget disappears each time the user moves from one page to another.</p>
         <p>You can bypass this issue by adding the following code in a <code>&lt;script&gt;</code> tag:</p><br/>
 
-        <pre>document.addEventListener("page:load", function() {
-  _slaask = new slaaskApp();
-  _slaask.init('<span class="token property">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>');
-});</pre><br/>
+        <pre>document.addEventListener('slaask.ready', function (e) {
+  var slaaskDOM = [];
+  for (var i = 0 ; i < document.body.children.length ; i++) {
+    if (/^slaask-/.test(document.body.children[i].id)) slaaskDOM.push(document.body.children[i]);
+  }
+  function reAppend() {
+    for (var id in slaaskDOM) {
+      document.body.appendChild(slaaskDOM[id]);
+    }
+  }
+  document.addEventListener("turbolinks:load", reAppend);
+  document.addEventListener("page:load", reAppend);
+}, false);</pre><br/>
 
         <p>Then replace the <code>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</code> with your <b>Widget Key</b>.</p>
 
