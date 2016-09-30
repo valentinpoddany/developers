@@ -19,6 +19,7 @@
     "name": "Design",
     "pages": {
       "adjusting-widget-position": { "title": "Adjusting your widget's icon position" },
+      "removing-button-background": { "title": "Removing the white background from the button" },
       "slaask-branding": { "title": "Slaask Brand Guidelines" },
       "slaask-logos": { "title": "Slaask Logos" }
     }
