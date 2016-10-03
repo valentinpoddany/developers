@@ -23,6 +23,7 @@
             <div class="languages">
               <div class="btn-group" data-toggle="buttons">
                 <label id="btn-javascript" class="btn active">javascript</label>
+                <label id="btn-async" class="btn">JS (async)</label>
                 <label id="btn-rails" class="btn">ruby (rails)</label>
                 <label id="btn-django" class="btn">python (django)</label>
                 <label id="btn-php" class="btn">php</label>
@@ -43,6 +44,32 @@
     });
 
     _slaask.init('<span class="token blue-property">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>', { visitor_token: <span class="token property">'a-unique-visitor-attribute'</span> });
+&lt;/script&gt;
+            </pre>
+
+            <pre id="async" class="line-numbers hidden" data-language="markup">
+
+&lt;script&gt;
+  (function() {
+    var slk = document.createElement('script');
+    slk.src = 'https://cdn.slaask.com/chat.js';
+    slk.type = 'text/javascript';
+    slk.async = 'true';
+    slk.onload = slk.onreadystatechange = function() {
+      var rs = this.readyState;
+      if (rs && rs != 'complete' && rs != 'loaded') return;
+      try {
+        _slaask.identify(<span class="token property">'UserName'</span>, {
+          user_id: <span class="token property">1234</span>,
+          email: <span class="token property">'firstname@company.com'</span>,
+          plan: <span class="token property">'enterprise'</span>
+        });
+        _slaask.init('<span class="token blue-property">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>', { visitor_token: <span class="token property">'a-unique-visitor-attribute'</span> });
+      } catch (e) {}
+    };
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(slk, s);
+  })();
 &lt;/script&gt;
             </pre>
 
@@ -122,3 +149,17 @@
     <!-- END Main content -->
   </div>
 </main>
+
+<script>
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      var hash = document.location.hash.substr(1);
+      if (hash) {
+        var btn = document.getElementById('btn-' + hash);
+        if (btn) {
+          btn.click();
+        }
+      }
+    }, 16);
+  });
+</script>
