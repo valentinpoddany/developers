@@ -1,0 +1,129 @@
+<main class="container-fluid">
+  <div class="row">
+
+    <!-- Main content -->
+    <article class="main-content" role="main">
+
+      <header>
+        <h1>Initializing the widget</h1>
+        <ol class="toc">
+          <li><a href="#find-your-slaask-code-snippet">Find your Slaask code snippet.</a></li>
+          <li><a href="#paste-your-slaask-code-snippet">Paste your Slaask code snippet.</a></li>
+          <li><a href="#verify">Verify that everything is working as it should.</a></li>
+        </ol>
+      </header>
+
+      <section>
+        <h2 id="find-your-slaask-code-snippet"><a href="#find-your-slaask-code-snippet">Find your Slaask code snippet.</a></h2>
+        <p>Once you are connected to your Slaask account on <a href="https://slaask.com/account">slaask.com</a>, click on <b>Widgets</b> on the left sidebar.</p>
+
+        <p>Find your Slaask code snippet in this "Widgets" section. It will be located inside of an input on the right side of the screen.</p>
+
+        <p>This input contains a unique Slaask key that corresponds to one of your Slaask widgets.</p>
+      </section>
+
+      <section>
+        <h2 id="paste-your-slaask-code-snippet"><a href="#paste-your-slaask-code-snippet">Paste your Slaask code snippet.</a></h2>
+
+        <ul class="step-text">
+          <li>
+            <p>Download <a href="/sdk/slaask.aar.zip"><b>slaask.aar</b> by clicking here</a></p>
+          </li>
+
+          <li>
+            <p>Open <code>File</code> -> <code>New</code> -> <code>New Module</code> -> <code>Import JAR/ARR Package</code> -> select <code>slaask.aar</code></p>
+          </li>
+
+          <li>
+            <p>Open <code>File</code> -> <code>Project Structure</code> -> <code>YourApplication Module</code> -> <code>Dependencies</code> -> <code>Add</code> -> <code>Module Dependency</code> -> select <code>slaask</code></p>
+          </li>
+
+          <li>
+            <p>
+              <b>Permissions</b>
+          </p>
+            <div class="code-window">
+              <div class="window-content">
+                <pre id="swift" class="line-numbers" data-language="markup">
+
+&lt;uses-permission android:name="android.permission.CAMERA"&gt;&lt;/uses-permission&gt;
+&lt;uses-permission android:name="android.permission.INTERNET"&gt;&lt;/uses-permission&gt;
+&lt;uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"&gt;&lt;/uses-permission&gt;
+                </pre>
+              </div>
+            </div>
+            <p>
+              <i>Starting with Android 6 Marshmallow (API 23) allow runtime permissions for <b>CAMERA</b> and <b>WRITE_EXTERNAL_STORAGE</b></i>
+            </p>
+          </li>
+
+          <li>
+            <p>Add the following code to the <code>MainActivity</code> class</code>:</p>
+            <div class="code-window">
+              <div class="window-content">
+                <pre id="swift" class="line-numbers" data-language="markup">
+
+import com.slaask.lib.model.SLAASKConfig;
+import com.slaask.lib.model.SLAASKIdentify;
+import java.util.HashMap;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        String token = "<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>";
+
+        SLAASKConfig config = new SLAASKConfig(token);
+
+        SLAASKManager.getInstance()
+                .setContainerId(R.id.container)
+                .setContainerActivity(this)
+                .setConfig(config);
+
+        setContentView(R.layout.activity_main);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        SLAASKManager.getInstance().onActivityResult(requestCode, resultCode, data);
+    }
+}
+                </pre>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 id="verify"><a href="#verify">Verify that everything is working as it should.</a></h2>
+
+        <h3>Once you've build your app code (including the Slaask snippet):</h3>
+
+        <ul class="step-text">
+          <li>
+            <p>Go to a view of your app where the <code>show()</code> method is called. The Slaask widget should appear.</p>
+          </li>
+
+          <li>
+            <p>Type something (such as: "Hey! Do you read me?").</p>
+          </li>
+
+          <li>
+            <p>In a new tab, open your Slack app (exactly the same way you would when using Slack for normal communication purposes). Your message should appear in a dedicated channel on your Slack app.</p>
+          </li>
+
+          <li>
+            <p>If you can see your message in a channel, it means your Slaask integration is a success! Congratulations! Otherwise, if you believe you've followed this process correctly and it still isn't working, <a href="" class="slaask-open-widget pink" data-message="Hey!
+
+My iOS SDK integration is not working :confused:">please contact us</a> so that we may help you resolve the issue.</p>
+          </li>
+        </ul>
+      </section>
+
+    </article>
+    <!-- END Main content -->
+  </div>
+</main>

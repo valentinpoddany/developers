@@ -1,4 +1,16 @@
 $(function() {
+  var url = window.location.href
+  try {
+    var captured = /apiKey=([^&]+)/.exec(url)[1];
+    $('.replace-with-api-key').html(captured ? captured : 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx')
+
+    if(captured) {
+      $('.add-api-key-link a').each(function() {
+        $(this).attr('href', $(this).attr('href') + '?apiKey=' + captured)
+      })
+    }
+  } catch(e) {}
+
   $('a.has-child').click(function() {
     $(this).toggleClass('active')
     $(this).toggleClass('open')

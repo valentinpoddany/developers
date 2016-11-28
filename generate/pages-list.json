@@ -15,6 +15,22 @@
       "turbolinks": { "title": "Enabling Slaask to work with Turbolinks" }
     }
   },
+  "ios-sdk": {
+    "name": "iOS SDK <b>(BETA)</b>",
+    "pages": {
+      "initializing-the-widget": { "title": "Initializing the widget" },
+      "getting-more-information": { "title": "Gathering more information about your visitors" },
+      "functions": { "title": "Functions" }
+    }
+  },
+  "android-sdk": {
+    "name": "Android SDK <b>(BETA)</b>",
+    "pages": {
+      "initializing-the-widget": { "title": "Initializing the widget" },
+      "getting-more-information": { "title": "Gathering more information about your visitors" },
+      "functions": { "title": "Functions" }
+    }
+  },
   "design": {
     "name": "Design",
     "pages": {

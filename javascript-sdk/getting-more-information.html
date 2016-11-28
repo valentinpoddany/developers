@@ -13,7 +13,7 @@
     <a class="sidebar-brand" href="/"><img src="https://cdn.slaask.com/slaask_logo_lg.png" alt="logo"></a>
 
     <ul class="sidenav dropable sticky" style="height: 649px;position: static;">
-      <li><a href="/">Overview</a></li><li><a class="active open has-child" href="#">Javascript SDK</a><ul><li><a href="/javascript-sdk/why-a-javascript-sdk.html">Why do we use a Javascript API?</a></li><li><a href="/javascript-sdk/initializing-the-widget.html">Initializing the widget</a></li><li><a href="/javascript-sdk/loading-the-widget-asynchronously.html">Loading the widget asynchronously</a></li><li><a class="active" href="/javascript-sdk/getting-more-information.html">Gathering more information about your visitors</a></li><li><a href="/javascript-sdk/master-your-widget.html">Mastering your widget</a></li><li><a href="/javascript-sdk/javascript-sdk-functions.html">Functions</a></li><li><a href="/javascript-sdk/javascript-sdk-events.html">Events</a></li><li><a href="/javascript-sdk/open-slaask-from-button.html">Opening Slaask from an item/button</a></li><li><a href="/javascript-sdk/single-page-application.html">Enabling Slaask to work with Single-Page Application</a></li><li><a href="/javascript-sdk/turbolinks.html">Enabling Slaask to work with Turbolinks</a></li></ul></li><li><a class="has-child" href="#">Design</a><ul><li><a href="/design/adjusting-widget-position.html">Adjusting your widget's icon position</a></li><li><a href="/design/removing-button-background.html">Removing the white background from the button</a></li><li><a href="/design/disabling-is-typing-indicator.html">Disabling the "is typing" indicator</a></li><li><a href="/design/slaask-branding.html">Slaask Brand Guidelines</a></li><li><a href="/design/slaask-logos.html">Slaask Logos</a></li></ul></li>
+      <li class="add-api-key-link"><a href="/">Overview</a></li><li class="add-api-key-link"><a class="active open has-child" href="#">Javascript SDK</a><ul><li class="add-api-key-link"><a href="/javascript-sdk/why-a-javascript-sdk.html">Why do we use a Javascript API?</a></li><li class="add-api-key-link"><a href="/javascript-sdk/initializing-the-widget.html">Initializing the widget</a></li><li class="add-api-key-link"><a href="/javascript-sdk/loading-the-widget-asynchronously.html">Loading the widget asynchronously</a></li><li class="add-api-key-link"><a class="active" href="/javascript-sdk/getting-more-information.html">Gathering more information about your visitors</a></li><li class="add-api-key-link"><a href="/javascript-sdk/master-your-widget.html">Mastering your widget</a></li><li class="add-api-key-link"><a href="/javascript-sdk/javascript-sdk-functions.html">Functions</a></li><li class="add-api-key-link"><a href="/javascript-sdk/javascript-sdk-events.html">Events</a></li><li class="add-api-key-link"><a href="/javascript-sdk/open-slaask-from-button.html">Opening Slaask from an item/button</a></li><li class="add-api-key-link"><a href="/javascript-sdk/single-page-application.html">Enabling Slaask to work with Single-Page Application</a></li><li class="add-api-key-link"><a href="/javascript-sdk/turbolinks.html">Enabling Slaask to work with Turbolinks</a></li></ul></li><li class="add-api-key-link"><a class="has-child" href="#">iOS SDK <b>(BETA)</b></a><ul><li class="add-api-key-link"><a href="/ios-sdk/initializing-the-widget.html">Initializing the widget</a></li><li class="add-api-key-link"><a href="/ios-sdk/getting-more-information.html">Gathering more information about your visitors</a></li><li class="add-api-key-link"><a href="/ios-sdk/functions.html">Functions</a></li></ul></li><li class="add-api-key-link"><a class="has-child" href="#">Android SDK <b>(BETA)</b></a><ul><li class="add-api-key-link"><a href="/android-sdk/initializing-the-widget.html">Initializing the widget</a></li><li class="add-api-key-link"><a href="/android-sdk/getting-more-information.html">Gathering more information about your visitors</a></li><li class="add-api-key-link"><a href="/android-sdk/functions.html">Functions</a></li></ul></li><li class="add-api-key-link"><a class="has-child" href="#">Design</a><ul><li class="add-api-key-link"><a href="/design/adjusting-widget-position.html">Adjusting your widget's icon position</a></li><li class="add-api-key-link"><a href="/design/removing-button-background.html">Removing the white background from the button</a></li><li class="add-api-key-link"><a href="/design/disabling-is-typing-indicator.html">Disabling the "is typing" indicator</a></li><li class="add-api-key-link"><a href="/design/slaask-branding.html">Slaask Brand Guidelines</a></li><li class="add-api-key-link"><a href="/design/slaask-logos.html">Slaask Logos</a></li></ul></li>
     </ul>
 
   </aside>
@@ -98,7 +98,7 @@
         speciality: <span class="token property">'martial artist'</span>
     });
 
-    _slaask.init('<span class="token blue-property">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>', { visitor_token: <span class="token property">'a-unique-visitor-attribute'</span> });
+    _slaask.init('<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>', { visitor_token: <span class="token property">'a-unique-visitor-attribute'</span> });
 &lt;/script&gt;
             </pre>
 
@@ -119,7 +119,7 @@
           email: <span class="token property">'firstname@company.com'</span>,
           plan: <span class="token property">'enterprise'</span>
         });
-        _slaask.init('<span class="token blue-property">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>', { visitor_token: <span class="token property">'a-unique-visitor-attribute'</span> });
+        _slaask.init('<span class="token blue-property replace-with-api-key">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>', { visitor_token: <span class="token property">'a-unique-visitor-attribute'</span> });
       } catch (e) {}
     };
     var s = document.getElementsByTagName('script')[0];
@@ -132,8 +132,6 @@
 
 &lt;script src='https://cdn.slaask.com/chat.js'&gt;&lt;/script&gt;
 
-<em>&lt;!-- Set your API key in: <span class="token blue-property">ENV["SLAASK_API_KEY"]</span> --&gt;</em>
-
 &lt;% if user_signed_in? %&gt;
   &lt;script&gt;
     _slaask.identify('<span class="token property">&lt;%= current_user.firstname %&gt;</span>', {
@@ -142,11 +140,11 @@
       speciality: '<span class="token property">&lt;%= current_user.speciality %&gt;</span>'
     });
 
-    _slaask.init('<span class="token blue-property">&lt;%= ENV["SLAASK_API_KEY"] %&gt;</span>', { visitor_token: '<span class="token property">&lt;%= current_user.id %&gt;</span>' });
+    _slaask.init('<span class="token blue-property replace-with-api-key">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>', { visitor_token: '<span class="token property">&lt;%= current_user.id %&gt;</span>' });
   &lt;/script&gt;
 &lt;% else %&gt;
   &lt;script&gt;
-    _slaask.init('<span class="token blue-property">&lt;%= ENV["SLAASK_API_KEY"] %&gt;</span>');
+    _slaask.init('<span class="token blue-property replace-with-api-key">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>');
   &lt;/script&gt;
 &lt;% end %&gt;
             </pre>
@@ -163,11 +161,11 @@
       speciality: '<span class="token property">{{ current_user.speciality }}</span>'
     });
 
-    _slaask.init('<span class="token blue-property">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>', { visitor_token: '<span class="token property">{{ current_user.id }}</span>' });
+    _slaask.init('<span class="token blue-property replace-with-api-key">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>', { visitor_token: '<span class="token property">{{ current_user.id }}</span>' });
   &lt;/script&gt;
 {% else %}
   &lt;script&gt;
-    _slaask.init('<span class="token blue-property">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>');
+    _slaask.init('<span class="token blue-property replace-with-api-key">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>');
   &lt;/script&gt;
 {% endif %}
             </pre>
@@ -184,11 +182,11 @@
       speciality: '<span class="token property">&lt;?php echo $current_user->speciality ?&gt;</span>'
     });
 
-    _slaask.init('<span class="token blue-property">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>', { visitor_token: '<span class="token property">&lt;?php echo $current_user->id ?&gt;</span>' });
+    _slaask.init('<span class="token blue-property replace-with-api-key">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>', { visitor_token: '<span class="token property">&lt;?php echo $current_user->id ?&gt;</span>' });
   &lt;/script&gt;
 &lt;?php else: ?&gt;
   &lt;script&gt;
-    _slaask.init('<span class="token blue-property">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>');
+    _slaask.init('<span class="token blue-property replace-with-api-key">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>');
   &lt;/script&gt;
 &lt;?php endif; ?&gt;
             </pre>

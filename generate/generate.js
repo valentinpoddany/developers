@@ -42,7 +42,7 @@ function merge() {
     for (var idC in catgList) {
       var catg = catgList[idC];
       if (idC != "index") {
-        indexNav += "<li><h5>" + catg.name + "</h5>";
+        indexNav += '<li class="add-api-key-link"><h5>' + catg.name + '</h5>';
         for (var idP in catg.pages) {
           var page = catg.pages[idP];
           indexNav += '<a href="/' + idC + '/' + idP + '.html">' + page.title + '</a>';
@@ -58,13 +58,13 @@ function merge() {
     for (var idC in catgList) {
       var catg = catgList[idC];
       if (idC == "index") {
-        nav += '<li><a href="/"' + ((currCatg == "index") ? ' class="active"' : '') + '>Overview</a></li>'
+        nav += '<li class="add-api-key-link"><a href="/"' + ((currCatg == "index") ? ' class="active"' : '') + '>Overview</a></li>'
       }
       else {
-        nav += '<li><a class="' + ((currCatg == idC) ? 'active open ' : '') + 'has-child" href="#">' + catg.name + '</a><ul>';
+        nav += '<li class="add-api-key-link"><a class="' + ((currCatg == idC) ? 'active open ' : '') + 'has-child" href="#">' + catg.name + '</a><ul>';
         for (var idP in catg.pages) {
           var page = catg.pages[idP];
-          nav += '<li><a ' + ((currCatg == idC && currPage == idP) ? 'class="active" ' : '') + 'href="/' + idC + '/' + idP + '.html">' + page.title + '</a></li>';
+          nav += '<li class="add-api-key-link"><a ' + ((currCatg == idC && currPage == idP) ? 'class="active" ' : '') + 'href="/' + idC + '/' + idP + '.html">' + page.title + '</a></li>';
         }
         nav += "</ul></li>";
       }

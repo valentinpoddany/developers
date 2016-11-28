@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gathering more information about your visitors</title>
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="shortcut icon" type="image/x-icon" href="https://cdn.slaask.com/favicon.png" />
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+</head>
+<body>
+  <aside class="sidebar sidebar-boxed">
+
+    <a class="sidebar-brand" href="/"><img src="https://cdn.slaask.com/slaask_logo_lg.png" alt="logo"></a>
+
+    <ul class="sidenav dropable sticky" style="height: 649px;position: static;">
+      <li class="add-api-key-link"><a href="/">Overview</a></li><li class="add-api-key-link"><a class="has-child" href="#">Javascript SDK</a><ul><li class="add-api-key-link"><a href="/javascript-sdk/why-a-javascript-sdk.html">Why do we use a Javascript API?</a></li><li class="add-api-key-link"><a href="/javascript-sdk/initializing-the-widget.html">Initializing the widget</a></li><li class="add-api-key-link"><a href="/javascript-sdk/loading-the-widget-asynchronously.html">Loading the widget asynchronously</a></li><li class="add-api-key-link"><a href="/javascript-sdk/getting-more-information.html">Gathering more information about your visitors</a></li><li class="add-api-key-link"><a href="/javascript-sdk/master-your-widget.html">Mastering your widget</a></li><li class="add-api-key-link"><a href="/javascript-sdk/javascript-sdk-functions.html">Functions</a></li><li class="add-api-key-link"><a href="/javascript-sdk/javascript-sdk-events.html">Events</a></li><li class="add-api-key-link"><a href="/javascript-sdk/open-slaask-from-button.html">Opening Slaask from an item/button</a></li><li class="add-api-key-link"><a href="/javascript-sdk/single-page-application.html">Enabling Slaask to work with Single-Page Application</a></li><li class="add-api-key-link"><a href="/javascript-sdk/turbolinks.html">Enabling Slaask to work with Turbolinks</a></li></ul></li><li class="add-api-key-link"><a class="active open has-child" href="#">iOS SDK <b>(BETA)</b></a><ul><li class="add-api-key-link"><a href="/ios-sdk/initializing-the-widget.html">Initializing the widget</a></li><li class="add-api-key-link"><a class="active" href="/ios-sdk/getting-more-information.html">Gathering more information about your visitors</a></li><li class="add-api-key-link"><a href="/ios-sdk/functions.html">Functions</a></li></ul></li><li class="add-api-key-link"><a class="has-child" href="#">Android SDK <b>(BETA)</b></a><ul><li class="add-api-key-link"><a href="/android-sdk/initializing-the-widget.html">Initializing the widget</a></li><li class="add-api-key-link"><a href="/android-sdk/getting-more-information.html">Gathering more information about your visitors</a></li><li class="add-api-key-link"><a href="/android-sdk/functions.html">Functions</a></li></ul></li><li class="add-api-key-link"><a class="has-child" href="#">Design</a><ul><li class="add-api-key-link"><a href="/design/adjusting-widget-position.html">Adjusting your widget's icon position</a></li><li class="add-api-key-link"><a href="/design/removing-button-background.html">Removing the white background from the button</a></li><li class="add-api-key-link"><a href="/design/disabling-is-typing-indicator.html">Disabling the "is typing" indicator</a></li><li class="add-api-key-link"><a href="/design/slaask-branding.html">Slaask Brand Guidelines</a></li><li class="add-api-key-link"><a href="/design/slaask-logos.html">Slaask Logos</a></li></ul></li>
+    </ul>
+
+  </aside>
+  <header class="site-header navbar-fullwidth">
+
+    <!-- Top navbar & branding -->
+    <nav class="navbar navbar-default">
+      <div class="container">
+
+        <!-- Toggle buttons and brand -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="true" aria-controls="navbar">
+            <span class="glyphicon glyphicon-option-vertical"></span>
+          </button>
+
+          <button type="button" class="navbar-toggle for-sidebar" data-toggle="offcanvas">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <!-- END Toggle buttons and brand -->
+
+        <!-- Top navbar -->
+        <div id="navbar" class="navbar-collapse collapse" aria-expanded="true" role="banner">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="/">Documentation</a></li>
+            <li><a href="https://slaask.zendesk.com/hc/en-us" target="_blank">FAQ</a></li>
+            <li class="hero">
+            <a href="#" class="slaask-open-widget">Support</a></li>
+          </ul>
+        </div>
+        <!-- END Top navbar -->
+
+      </div>
+    </nav>
+    <!-- END Top navbar & branding -->
+
+  </header>
+<main class="container-fluid">
+  <div class="row">
+
+    <!-- Main content -->
+    <article class="main-content" role="main">
+
+      <header>
+        <h1>Gathering more information about your visitors</h1>
+      </header>
+
+      <section>
+        <p>These instructions will walk you through the installation of Slaask on your app for <b>logged-in users of your product</b>. With this feature, you can track account data and have conversations with your users via Slaask.</p>
+
+        <div class="code-window">
+          <div class="window-bar">
+            <div class="circles">
+              <span class="circle circle-red"></span> <span class="circle circle-yellow"></span> <span class="circle circle-green"></span>
+            </div>
+            <div class="languages">
+              <div class="btn-group" data-toggle="buttons">
+                <label id="btn-swift" class="btn active">swift</label>
+                <label id="btn-objective" class="btn">objective-c</label>
+              </div>
+            </div>
+          </div>
+
+              <div class="window-content">
+                <pre id="swift" class="line-numbers" data-language="markup">
+
+let identify        = SLAASKIdentify.init(identifyName: <span class="token property">"JackieChan"</span>, options: ["user_id" : <span class="token property">"123456"</span>, "email" : <span class="token property">"jackie@chan.com"</span>, "speciality" : <span class="token property">"martial artist"</span>])
+let config          = SLAASKConfig.init(slaaskToken: "<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>")
+
+config.identify     = identifiy
+config.visitorToken = <span class="token property">"a-unique-visitor-attribute"</span>
+
+let manager         = SLAASKManager.sharedInstance
+manager.config      = config
+                </pre>
+                <pre id="objective" class="line-numbers hidden" data-language="markup">
+
+SLAASKIdentify *identify  = [[SLAASKIdentify alloc] initWithIdentifyName:<span class="token property">@"JackieChan"</span> options:@{@"user_id" : <span class="token property">@"123456"</span>, @"email" : <span class="token property">@"jackie@chan.com"</span>, @“speciality” : <span class="token property">@martial artist</span>}];
+SLAASKConfig *config      = [[SLAASKConfig alloc] initWithSlaaskToken:@"<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>"];
+
+config.identify           = identify;
+config.visitorToken       = <span class="token property">@"a-unique-visitor-attribute"</span>;
+
+SLAASKManager *manager    = [SLAASKManager sharedInstance];
+manager.config            = config;
+                </pre>
+              </div>
+            </div>
+
+        <p>Make sure you replace the user data example (<u class="hover-swag">highlighted in <span class="token property">pink</span></u>) with your own code that inserts real user data for the currently logged-in user on each of your Views.</p>
+
+        <p>Replace <code>a-unique-visitor-attribute</code> (<code>config.visitorToken</code>) with a <b>UNIQUE</b> identifier for your visitor. This attribute will be used to identify your visitors in order to retrieve their conversation history and information.</p>
+      </section>
+
+    </article>
+    <!-- END Main content -->
+  </div>
+</main>
+
+<script>
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      var hash = document.location.hash.substr(1);
+      if (hash) {
+        var btn = document.getElementById('btn-' + hash);
+        if (btn) {
+          btn.click();
+        }
+      }
+    }, 16);
+  });
+</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-rc1/jquery.min.js"></script>
+    <script src="/assets/main.js"></script>
+</body>
+</html>

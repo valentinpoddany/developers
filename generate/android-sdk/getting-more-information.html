@@ -1,0 +1,81 @@
+<main class="container-fluid">
+  <div class="row">
+
+    <!-- Main content -->
+    <article class="main-content" role="main">
+
+      <header>
+        <h1>Gathering more information about your visitors</h1>
+      </header>
+
+      <section>
+        <p>These instructions will walk you through the installation of Slaask on your app for <b>logged-in users of your product</b>. With this feature, you can track account data and have conversations with your users via Slaask.</p>
+
+        <div class="code-window">
+            <div class="window-content">
+              <pre id="swift" class="line-numbers" data-language="markup">
+
+import com.slaask.lib.model.SLAASKConfig;
+import com.slaask.lib.model.SLAASKIdentify;
+import java.util.HashMap;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        String name           = <span class="token property">"name"</span>;
+        String mVisitor_token = <span class="token property">"a-unique-visitor-attribute"</span>;
+        String token          = "<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>";
+
+        HashMap<String ,String > mOptions = new HashMap<>();
+
+        mOptions.put("user_id" , <span class="token property">"1234567890"</span>);
+        mOptions.put("email" ,<span class="token property">"user@gmail.com"</span>);
+
+        SLAASKIdentify identify = new SLAASKIdentify(name, mOptions);
+        SLAASKConfig config     = new SLAASKConfig(token, identify);
+
+        config.setVisitorToken(mVisitor_token);
+
+        SLAASKManager.getInstance()
+                .setContainerId(R.id.container)
+                .setContainerActivity(this)
+                .setConfig(config);
+
+        setContentView(R.layout.activity_main);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        SLAASKManager.getInstance().onActivityResult(requestCode, resultCode, data);
+    }
+}
+            </pre>
+          </div>
+        </div>
+
+        <p>Make sure you replace the user data example (<u class="hover-swag">highlighted in <span class="token property">pink</span></u>) with your own code that inserts real user data for the currently logged-in user on each of Activity classes.</p>
+
+        <p>Replace <code>a-unique-visitor-attribute</code> (<code>mVisitor_token</code>) with a <b>UNIQUE</b> identifier for your visitor. This attribute will be used to identify your visitors in order to retrieve their conversation history and information.</p>
+      </section>
+
+    </article>
+    <!-- END Main content -->
+  </div>
+</main>
+
+<script>
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      var hash = document.location.hash.substr(1);
+      if (hash) {
+        var btn = document.getElementById('btn-' + hash);
+        if (btn) {
+          btn.click();
+        }
+      }
+    }, 16);
+  });
+</script>

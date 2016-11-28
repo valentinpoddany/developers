@@ -43,7 +43,7 @@
         speciality: <span class="token property">'martial artist'</span>
     });
 
-    _slaask.init('<span class="token blue-property">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>', { visitor_token: <span class="token property">'a-unique-visitor-attribute'</span> });
+    _slaask.init('<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>', { visitor_token: <span class="token property">'a-unique-visitor-attribute'</span> });
 &lt;/script&gt;
             </pre>
 
@@ -64,7 +64,7 @@
           email: <span class="token property">'firstname@company.com'</span>,
           plan: <span class="token property">'enterprise'</span>
         });
-        _slaask.init('<span class="token blue-property">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>', { visitor_token: <span class="token property">'a-unique-visitor-attribute'</span> });
+        _slaask.init('<span class="token blue-property replace-with-api-key">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>', { visitor_token: <span class="token property">'a-unique-visitor-attribute'</span> });
       } catch (e) {}
     };
     var s = document.getElementsByTagName('script')[0];
@@ -77,8 +77,6 @@
 
 &lt;script src='https://cdn.slaask.com/chat.js'&gt;&lt;/script&gt;
 
-<em>&lt;!-- Set your API key in: <span class="token blue-property">ENV["SLAASK_API_KEY"]</span> --&gt;</em>
-
 &lt;% if user_signed_in? %&gt;
   &lt;script&gt;
     _slaask.identify('<span class="token property">&lt;%= current_user.firstname %&gt;</span>', {
@@ -87,11 +85,11 @@
       speciality: '<span class="token property">&lt;%= current_user.speciality %&gt;</span>'
     });
 
-    _slaask.init('<span class="token blue-property">&lt;%= ENV["SLAASK_API_KEY"] %&gt;</span>', { visitor_token: '<span class="token property">&lt;%= current_user.id %&gt;</span>' });
+    _slaask.init('<span class="token blue-property replace-with-api-key">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>', { visitor_token: '<span class="token property">&lt;%= current_user.id %&gt;</span>' });
   &lt;/script&gt;
 &lt;% else %&gt;
   &lt;script&gt;
-    _slaask.init('<span class="token blue-property">&lt;%= ENV["SLAASK_API_KEY"] %&gt;</span>');
+    _slaask.init('<span class="token blue-property replace-with-api-key">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>');
   &lt;/script&gt;
 &lt;% end %&gt;
             </pre>
@@ -108,11 +106,11 @@
       speciality: '<span class="token property">{{ current_user.speciality }}</span>'
     });
 
-    _slaask.init('<span class="token blue-property">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>', { visitor_token: '<span class="token property">{{ current_user.id }}</span>' });
+    _slaask.init('<span class="token blue-property replace-with-api-key">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>', { visitor_token: '<span class="token property">{{ current_user.id }}</span>' });
   &lt;/script&gt;
 {% else %}
   &lt;script&gt;
-    _slaask.init('<span class="token blue-property">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>');
+    _slaask.init('<span class="token blue-property replace-with-api-key">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>');
   &lt;/script&gt;
 {% endif %}
             </pre>
@@ -129,11 +127,11 @@
       speciality: '<span class="token property">&lt;?php echo $current_user->speciality ?&gt;</span>'
     });
 
-    _slaask.init('<span class="token blue-property">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>', { visitor_token: '<span class="token property">&lt;?php echo $current_user->id ?&gt;</span>' });
+    _slaask.init('<span class="token blue-property replace-with-api-key">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>', { visitor_token: '<span class="token property">&lt;?php echo $current_user->id ?&gt;</span>' });
   &lt;/script&gt;
 &lt;?php else: ?&gt;
   &lt;script&gt;
-    _slaask.init('<span class="token blue-property">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>');
+    _slaask.init('<span class="token blue-property replace-with-api-key">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>');
   &lt;/script&gt;
 &lt;?php endif; ?&gt;
             </pre>
