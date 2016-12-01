@@ -5,33 +5,41 @@
     <article class="main-content" role="main">
 
       <header>
-        <h1>Initializing the widget</h1>
+        <h1>Implementing Slaask</h1>
         <ol class="toc">
-          <li><a href="#find-your-slaask-code-snippet">Find your Slaask code snippet.</a></li>
-          <li><a href="#paste-your-slaask-code-snippet">Paste your Slaask code snippet.</a></li>
+          <li><a href="#find-your-slaask-code-snippet">Locate your unique Slaask key.</a></li>
+          <li><a href="#paste-your-slaask-code-snippet">Add this library to your iOS project.</a></li>
           <li><a href="#verify">Verify that everything is working as it should.</a></li>
         </ol>
       </header>
 
       <section>
         <h2 id="find-your-slaask-code-snippet"><a href="#find-your-slaask-code-snippet">Find your Slaask code snippet.</a></h2>
-        <p>Once you are connected to your Slaask account on <a href="https://slaask.com/account">slaask.com</a>, click on <b>Widgets</b> on the left sidebar.</p>
-
-        <p>Find your Slaask code snippet in this section. It will be located inside of an input on the right-hand side of the screen.</p>
-
-        <p>This input contains a unique Slaask key that corresponds to one of your Slaask widgets.</p>
+        <ul class="step-text">
+          <li>
+          <p>Sign in to your Slaask account at <a href="https://slaask.com/account">slaask.com</a>.</p>
+          </li>
+          
+          <li>
+          <p>Click on <b>Personalization</b> over on the left sidebar.</p>
+          </li>
+          
+          <li>
+          <p>Copy your unique Slaask key (known as the <b>Widget key</b>) that corresponds to the Slaask live chat widget you wish to deploy on your mobile app.</p>
+          </li>
+         </ul>
       </section>
 
       <section>
-        <h2 id="paste-your-slaask-code-snippet"><a href="#paste-your-slaask-code-snippet">Paste your Slaask code snippet.</a></h2>
+        <h2 id="paste-your-slaask-code-snippet"><a href="#paste-your-slaask-code-snippet">Add this library to your iOS project.</a></h2>
 
         <ul class="step-text">
           <li>
-            <p>Download <a href="/sdk/slaask.framework.zip"><b>slaask.framework</b> by clicking here</a></p>
+            <p>Download <a href="/sdk/slaask.framework.zip"><b>slaask.framework</b> by clicking here</a>.</p>
           </li>
 
           <li>
-            <p>Open <code>Target Project</code> -> <code>Embedded Binaries</code> -> select <code>slaask.framework</code> with enabled <code>Copy items if needed</code> checkbox</p>
+            <p>Open <code>Target Project</code> -> <code>Embedded Binaries</code> -> select <code>slaask.framework</code>. Fill in the check box marked <code>copy items if needed</code>.</p>
           </li>
 
           <li>
@@ -49,6 +57,7 @@
 
           <li>
             <p>Add the following code to the project <code>AppDelegate</code>’s method <code>didFinishLaunchingWithOptions</code>:</p>
+            <p>(If not already replaced, replace "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" with your Widget Key.)</p>
             <div class="code-window">
               <div class="window-bar">
                 <div class="circles">
@@ -96,13 +105,11 @@ manager.config          = config;
           </li>
 
           <li>
-            <p>In a new tab, open your Slack app (exactly the same way you would when using Slack for normal communication purposes). Your message should appear in a dedicated channel on your Slack app.</p>
+            <p>Open up your Slack (exactly the same way you would when using Slack for normal communication purposes). Your message should appear in a dedicated channel on your Slack.</p>
           </li>
 
           <li>
-            <p>If you can see your message in a channel, it means your Slaask integration is a success! Congratulations! Otherwise, if you believe you've followed this process correctly and it still isn't working, <a href="" class="slaask-open-widget pink" data-message="Hey!
-
-My iOS SDK integration is not working :confused:">please contact us</a> so that we can help you resolve the issue.</p>
+            <p>If you can see your message appearing within a channel, this means that your Slaask integration was a success. Congrats! Otherwise, if you believe you've followed this process correctly and that Slaask isn't working on your mobile app as it should, please <a href="" class="slaask-open-widget pink" data-message="Hey! My iOS SDK integration is not working!">please contact us</a> so that we may help you resolve the issue.</p>
           </li>
         </ul>
       </section>
