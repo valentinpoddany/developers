@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Manage my Knowledge Base</title>
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="shortcut icon" type="image/x-icon" href="https://cdn.slaask.com/favicon.png" />
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+</head>
+<body>
+  <aside class="sidebar sidebar-boxed">
+
+    <a class="sidebar-brand" href="/"><img src="https://cdn.slaask.com/slaask_logo_lg.png" alt="logo"></a>
+
+    <ul class="sidenav dropable sticky" style="height: 649px;position: static;">
+      <li class="add-api-key-link"><a href="/">Overview</a></li><li class="add-api-key-link"><a class="has-child" href="#">Javascript SDK</a><ul><li class="add-api-key-link"><a href="/javascript-sdk/why-a-javascript-sdk.html">Why do we use a Javascript API?</a></li><li class="add-api-key-link"><a href="/javascript-sdk/initializing-the-widget.html">Initializing the widget</a></li><li class="add-api-key-link"><a href="/javascript-sdk/loading-the-widget-asynchronously.html">Loading the widget asynchronously</a></li><li class="add-api-key-link"><a href="/javascript-sdk/getting-more-information.html">Gathering more information about your visitors</a></li><li class="add-api-key-link"><a href="/javascript-sdk/javascript-sdk-functions.html">Functions</a></li><li class="add-api-key-link"><a href="/javascript-sdk/javascript-sdk-events.html">Events</a></li><li class="add-api-key-link"><a href="/javascript-sdk/open-slaask-from-button.html">Opening Slaask from an item/button</a></li><li class="add-api-key-link"><a href="/javascript-sdk/single-page-application.html">Enabling Slaask to work with Single-Page Application</a></li><li class="add-api-key-link"><a href="/javascript-sdk/turbolinks.html">Enabling Slaask to work with Turbolinks</a></li></ul></li><li class="add-api-key-link"><a class="has-child" href="#">iOS SDK <b>(ALPHA)</b></a><ul><li class="add-api-key-link"><a href="/ios-sdk/initializing-the-widget.html">Initializing the widget</a></li><li class="add-api-key-link"><a href="/ios-sdk/getting-more-information.html">Gathering more information about your visitors</a></li><li class="add-api-key-link"><a href="/ios-sdk/functions.html">Functions</a></li></ul></li><li class="add-api-key-link"><a class="has-child" href="#">Android SDK <b>(ALPHA)</b></a><ul><li class="add-api-key-link"><a href="/android-sdk/initializing-the-widget.html">Initializing the widget</a></li><li class="add-api-key-link"><a href="/android-sdk/getting-more-information.html">Gathering more information about your visitors</a></li><li class="add-api-key-link"><a href="/android-sdk/functions.html">Functions</a></li></ul></li><li class="add-api-key-link"><a class="active open has-child" href="#">REST API <b>(BETA)</b></a><ul><li class="add-api-key-link"><a href="/rest-api/find-my-secret-key.html">Find my Secret Key</a></li><li class="add-api-key-link"><a class="active" href="/rest-api/faqs.html">Manage my Knowledge Base</a></li></ul></li><li class="add-api-key-link"><a class="has-child" href="#">Design</a><ul><li class="add-api-key-link"><a href="/design/adjusting-widget-position.html">Adjusting your widget's icon position</a></li><li class="add-api-key-link"><a href="/design/removing-button-background.html">Removing the white background from the button</a></li><li class="add-api-key-link"><a href="/design/disabling-is-typing-indicator.html">Disabling the "is typing" indicator</a></li><li class="add-api-key-link"><a href="/design/slaask-branding.html">Slaask Brand Guidelines</a></li><li class="add-api-key-link"><a href="/design/slaask-logos.html">Slaask Logos</a></li></ul></li>
+    </ul>
+
+  </aside>
+  <header class="site-header navbar-fullwidth">
+
+    <!-- Top navbar & branding -->
+    <nav class="navbar navbar-default">
+      <div class="container">
+
+        <!-- Toggle buttons and brand -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="true" aria-controls="navbar">
+            <span class="glyphicon glyphicon-option-vertical"></span>
+          </button>
+
+          <button type="button" class="navbar-toggle for-sidebar" data-toggle="offcanvas">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <!-- END Toggle buttons and brand -->
+
+        <!-- Top navbar -->
+        <div id="navbar" class="navbar-collapse collapse" aria-expanded="true" role="banner">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="/">Documentation</a></li>
+            <li><a href="https://slaask.zendesk.com/hc/en-us" target="_blank">FAQ</a></li>
+            <li class="hero">
+            <a href="#" class="slaask-open-widget">Support</a></li>
+          </ul>
+        </div>
+        <!-- END Top navbar -->
+
+      </div>
+    </nav>
+    <!-- END Top navbar & branding -->
+
+  </header>
+<main class="container-fluid">
+  <div class="row">
+
+    <!-- Main content -->
+    <article class="main-content" role="main">
+
+      <header>
+        <h1>Manage my Knowledge Base through the REST API</h1>
+        <ol class="toc">
+          <li><a href="#get-all">GET all my Knowledge Base Entries</a></li>
+          <li><a href="#get-single">GET a single Knowledge Base Entry</a></li>
+          <li><a href="#create">CREATE a Knowledge Base Entry</a></li>
+          <li><a href="#update">UPDATE a Knowledge Base Entry</a></li>
+          <li><a href="#delete">DELETE a Knowledge Base Entry</a></li>
+        </ol>
+      </header>
+
+      <section>
+        <p>First, learn how to <a href="find-my-secret-key.html" target="_blank">find your secret key</a>.</p>
+        <h2 id="get-all"><a href="#get-all">GET all my Knowledge Base Entries</a></h2>
+        <h3>Endpoint</h3>
+        <p>
+          <pre><b>GET</b> https://slaask.com/api/faqs</pre>
+        </p>
+        <h3>Parameters</h3>
+        <p>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Key</th>
+                <th>Type</th>
+                <th>Optional?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>secret_key</code></td>
+                <td>String</td>
+                <td>No</td>
+              </tr>
+            </tbody>
+          </table>
+        </p>
+        <h3>Request</h3>
+        <div class="code-window">
+          <div class="window-bar">
+            <div class="circles">
+              <span class="circle circle-red"></span> <span class="circle circle-yellow"></span> <span class="circle circle-green"></span>
+            </div>
+            <div class="languages">
+              <div class="btn-group" data-toggle="buttons">
+                <label class="btn-curlpre btn active">cURL</label>
+                <label class="btn-javapre btn">Java</label>
+                <label class="btn-javascriptpre btn">Javascript</label>
+                <label class="btn-nodepre btn">NodeJS</label>
+                <label class="btn-phppre btn">PHP</label>
+                <label class="btn-pythonpre btn">Python</label>
+                <label class="btn-rubypre btn">Ruby</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="window-content">
+            <pre class="curlpre line-numbers" data-language="markup">
+
+curl -X GET "https://slaask.com/api/faqs?secret_key=<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>"
+            </pre>
+            <pre class="javapre line-numbers hidden" data-language="markup">
+
+OkHttpClient client = new OkHttpClient();
+
+Request request = new Request.Builder()
+  .url("https://slaask.com/api/faqs?secret_key=<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>")
+  .get()
+  .build();
+
+Response response = client.newCall(request).execute();
+            </pre>
+            <pre class="javascriptpre line-numbers hidden" data-language="markup">
+
+var data = null;
+
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function () {
+  if (this.readyState === 4) {
+    console.log(JSON.parse(this.responseText));
+  }
+});
+
+xhr.open("GET", "https://slaask.com/api/faqs?secret_key=<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>");
+
+xhr.send(data);
+            </pre>
+            <pre class="nodepre line-numbers hidden" data-language="markup">
+
+var request = require("request");
+
+var options = { method: 'GET',
+  url: 'https://slaask.com/api/faqs',
+  qs: { secret_key: '<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>' };
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
+            </pre>
+            <pre class="phppre line-numbers hidden" data-language="markup">
+
+<?php
+
+$request = new HttpRequest();
+$request->setUrl('https://slaask.com/api/faqs');
+$request->setMethod(HTTP_METH_GET);
+
+$request->setQueryData(array(
+  'secret_key' => '<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>'
+));
+
+try {
+  $response = $request->send();
+
+  echo $response->getBody();
+} catch (HttpException $ex) {
+  echo $ex;
+}
+            </pre>
+            <pre class="pythonpre line-numbers hidden" data-language="markup">
+
+import requests
+
+url = "https://slaask.com/api/faqs"
+
+querystring = {"secret_key":"<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>"}
+
+response = requests.request("GET", url, headers={}, params=querystring)
+
+print(response.text)
+            </pre>
+            <pre class="rubypre line-numbers hidden" data-language="markup">
+
+require 'uri'
+require 'net/http'
+
+url = URI("https://slaask.com/api/faqs?secret_key=<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>")
+
+http = Net::HTTP.new(url.host, url.port)
+http.use_ssl = true
+http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+request = Net::HTTP::Get.new(url)
+
+response = http.request(request)
+puts response.read_body
+            </pre>
+          </div>
+        </div>
+        <h3>Response</h3>
+        <p>
+          Status: <b>200 OK</b>
+        </p>
+        <pre>
+
+{
+"success": true,
+"results": [
+  {
+    "id": 1,
+    "title": "My Knowledge base title",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "created_at": "2016-10-12T15:22:09.000Z",
+    "updated_at": "2016-10-12T15:22:09.000Z"
+  }
+]
+}
+        </pre>
+        <h3>Errors</h3>
+        <p>
+          Status: <b>403 Forbidden</b>
+          <pre>
+
+{
+  "success": false,
+  "message": "Invalid Widget secret key"
+}
+          </pre>
+        </p>
+
+      </section>
+
+      <section>
+        <h2 id="get-single"><a href="#get-all">GET a single Knowledge Base Entry</a></h2>
+        <h3>Endpoint</h3>
+        <p>
+          <pre><b>GET</b> https://slaask.com/api/faqs/<span class="token property">ID</span></pre>
+        </p>
+        <h3>Parameters</h3>
+        <p>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Key</th>
+                <th>Type</th>
+                <th>Optional?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>secret_key</code></td>
+                <td>String</td>
+                <td>No</td>
+              </tr>
+              <tr>
+                <td><code>id</code></td>
+                <td>Integer</td>
+                <td>No</td>
+              </tr>
+            </tbody>
+          </table>
+        </p>
+        <h3>Request</h3>
+        <p>
+          <u class="hover-swag">ID is the id of the Knowledge Base Entry you want to get.</u>
+        </p>
+        <div class="code-window">
+          <div class="window-bar">
+            <div class="circles">
+              <span class="circle circle-red"></span> <span class="circle circle-yellow"></span> <span class="circle circle-green"></span>
+            </div>
+            <div class="languages">
+              <div class="btn-group" data-toggle="buttons">
+                <label class="btn-curlpre btn active">cURL</label>
+                <label class="btn-javapre btn">Java</label>
+                <label class="btn-javascriptpre btn">Javascript</label>
+                <label class="btn-nodepre btn">NodeJS</label>
+                <label class="btn-phppre btn">PHP</label>
+                <label class="btn-pythonpre btn">Python</label>
+                <label class="btn-rubypre btn">Ruby</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="window-content">
+            <pre class="curlpre line-numbers" data-language="markup">
+
+curl -X GET "https://slaask.com/api/faqs/<span class="token property">ID</span>?secret_key=<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>"
+            </pre>
+            <pre class="javapre line-numbers hidden" data-language="markup">
+
+OkHttpClient client = new OkHttpClient();
+
+Request request = new Request.Builder()
+  .url("https://slaask.com/api/faqs/<span class="token property">ID</span>?secret_key=<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>")
+  .get()
+  .build();
+
+Response response = client.newCall(request).execute();
+            </pre>
+            <pre class="javascriptpre line-numbers hidden" data-language="markup">
+
+var data = null;
+
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function () {
+  if (this.readyState === 4) {
+    console.log(JSON.parse(this.responseText));
+  }
+});
+
+xhr.open("GET", "https://slaask.com/api/faqs/<span class="token property">ID</span>?secret_key=<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>");
+
+xhr.send(data);
+            </pre>
+            <pre class="nodepre line-numbers hidden" data-language="markup">
+
+var request = require("request");
+
+var options = { method: 'GET',
+  url: 'https://slaask.com/api/faqs/<span class="token property">ID</span>',
+  qs: { secret_key: '<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>' };
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
+            </pre>
+            <pre class="phppre line-numbers hidden" data-language="markup">
+
+<?php
+
+$request = new HttpRequest();
+$request->setUrl('https://slaask.com/api/faqs/<span class="token property">ID</span>');
+$request->setMethod(HTTP_METH_GET);
+
+$request->setQueryData(array(
+  'secret_key' => '<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>'
+));
+
+try {
+  $response = $request->send();
+
+  echo $response->getBody();
+} catch (HttpException $ex) {
+  echo $ex;
+}
+            </pre>
+            <pre class="pythonpre line-numbers hidden" data-language="markup">
+
+import requests
+
+url = "https://slaask.com/api/faqs/<span class="token property">ID</span>"
+
+querystring = {"secret_key":"<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>"}
+
+response = requests.request("GET", url, headers={}, params=querystring)
+
+print(response.text)
+            </pre>
+            <pre class="rubypre line-numbers hidden" data-language="markup">
+
+require 'uri'
+require 'net/http'
+
+url = URI("https://slaask.com/api/faqs/<span class="token property">ID</span>?secret_key=<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>")
+
+http = Net::HTTP.new(url.host, url.port)
+http.use_ssl = true
+http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+request = Net::HTTP::Get.new(url)
+
+response = http.request(request)
+puts response.read_body
+            </pre>
+          </div>
+        </div>
+        <h3>Response</h3>
+        <p>
+          Status: <b>200 OK</b>
+          <pre>
+
+{
+  "success": true,
+  "result": {
+    "id": <span class="token property">ID</span>,
+    "title": "My Knowledge base title",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "created_at": "2016-10-12T15:22:09.000Z",
+    "updated_at": "2016-10-12T15:22:09.000Z"
+  }
+}
+          </pre>
+        </p>
+        <h3>Errors</h3>
+        <p>
+          Status: <b>403 Forbidden</b>
+        </p>
+        <pre>
+
+{
+  "success": false,
+  "message": "Invalid Widget secret key"
+}
+        </pre>
+        <p>
+          Status: <b>404 Not Found</b>
+        </p>
+        <pre>
+
+{
+  "success": false,
+  "message": "Unknown Knowledge Base Entry"
+}
+        </pre>
+
+      </section>
+
+      <section>
+        <h2 id="create"><a href="#create">CREATE a Knowledge Base Entry</a></h2>
+        <h3>Endpoint</h3>
+        <p>
+          <pre><b>POST</b> https://slaask.com/api/faqs</pre>
+        </p>
+        <h3>Parameters</h3>
+        <p>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Key</th>
+                <th>Type</th>
+                <th>Optional?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>secret_key</code></td>
+                <td>String</td>
+                <td>No</td>
+              </tr>
+              <tr>
+                <td><code>title</code></td>
+                <td>String</td>
+                <td>No</td>
+              </tr>
+              <tr>
+                <td><code>content</code></td>
+                <td>Text</td>
+                <td>No</td>
+              </tr>
+            </tbody>
+          </table>
+        </p>
+        <h3>Request</h3>
+        <p>
+          <u class="hover-swag"><b>Title</b> is the title of the Knowledge Base Entry you want to create.</u>
+          <br>
+          <u class="hover-swag"><b>Content</b> is the content of the Knowledge Base Entry you want to create.</u>
+        </p>
+        <div class="code-window">
+          <div class="window-bar">
+            <div class="circles">
+              <span class="circle circle-red"></span> <span class="circle circle-yellow"></span> <span class="circle circle-green"></span>
+            </div>
+            <div class="languages">
+              <div class="btn-group" data-toggle="buttons">
+                <label class="btn-curlpre btn active">cURL</label>
+                <label class="btn-javapre btn">Java</label>
+                <label class="btn-javascriptpre btn">Javascript</label>
+                <label class="btn-nodepre btn">NodeJS</label>
+                <label class="btn-phppre btn">PHP</label>
+                <label class="btn-pythonpre btn">Python</label>
+                <label class="btn-rubypre btn">Ruby</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="window-content">
+            <pre class="curlpre line-numbers" data-language="markup">
+
+curl -X POST "https://slaask.com/api/faqs?secret_key=<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>&title=<span class="token property">title</span>&content=<span class="token property">content</span>"
+            </pre>
+            <pre class="javapre line-numbers hidden" data-language="markup">
+
+OkHttpClient client = new OkHttpClient();
+
+Request request = new Request.Builder()
+  .url("https://slaask.com/api/faqs?secret_key=<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>&title=<span class="token property">title</span>&content=<span class="token property">content</span>")
+  .post(null)
+  .build();
+
+Response response = client.newCall(request).execute();
+            </pre>
+            <pre class="javascriptpre line-numbers hidden" data-language="markup">
+
+var data = null;
+
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function () {
+  if (this.readyState === 4) {
+    console.log(JSON.parse(this.responseText));
+  }
+});
+
+xhr.open("POST", "https://slaask.com/api/faqs?secret_key=<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>&title=<span class="token property">title</span>&content=<span class="token property">content</span>");
+
+xhr.send(data);
+            </pre>
+            <pre class="nodepre line-numbers hidden" data-language="markup">
+
+var request = require("request");
+
+var options = { method: 'POST',
+  url: 'https://slaask.com/api/faqs',
+  qs: {
+    secret_key: '<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>',
+    title: '<span class="token property">title</span>',
+    content: '<span class="token property">content</span>'
+  };
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
+            </pre>
+            <pre class="phppre line-numbers hidden" data-language="markup">
+
+<?php
+
+$request = new HttpRequest();
+$request->setUrl('https://slaask.com/api/faqs');
+$request->setMethod(HTTP_METH_POST);
+
+$request->setQueryData(array(
+  'secret_key' => '<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>',
+  'title' => '<span class="token property">title</span>',
+  'content' => '<span class="token property">content</span>'
+));
+
+try {
+  $response = $request->send();
+
+  echo $response->getBody();
+} catch (HttpException $ex) {
+  echo $ex;
+}
+            </pre>
+            <pre class="pythonpre line-numbers hidden" data-language="markup">
+
+import requests
+
+url = "https://slaask.com/api/faqs"
+
+querystring = {"secret_key":"<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>", "title":"<span class="token property">title</span>", "content": "<span class="token property">content</span>"}
+
+response = requests.request("POST", url, headers={}, params=querystring)
+
+print(response.text)
+            </pre>
+            <pre class="rubypre line-numbers hidden" data-language="markup">
+
+require 'uri'
+require 'net/http'
+
+url = URI("https://slaask.com/api/faqs?secret_key=<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>&title=<span class="token property">title</span>&content=<span class="token property">content</span>")
+
+http = Net::HTTP.new(url.host, url.port)
+http.use_ssl = true
+http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+request = Net::HTTP::Post.new(url)
+
+response = http.request(request)
+puts response.read_body
+            </pre>
+          </div>
+        </div>
+        <h3>Response</h3>
+        <p>
+          Status: <b>200 OK</b>
+          <pre>
+
+{
+  "success": true,
+  "result": {
+    "id": <span class="token property">ID</span>,
+    "title": "title",
+    "content": "content",
+    "created_at": "2016-10-12T15:22:09.000Z",
+    "updated_at": "2016-10-12T15:22:09.000Z"
+  }
+}
+          </pre>
+        </p>
+        <h3>Errors</h3>
+        <p>
+          Status: <b>403 Forbidden</b>
+        </p>
+        <pre>
+
+{
+  "success": false,
+  "message": "Invalid Widget secret key"
+}
+        </pre>
+        <p>
+          Status: <b>401 Unhautorized</b>
+        </p>
+        <pre>
+
+{
+  "success": false,
+  "message": "Can't create Knowledge Base Entry : title can't be blank"
+}
+        </pre>
+        <p>
+          or
+        </p>
+        <pre>
+
+{
+  "success": false,
+  "message": "Can't create Knowledge Base Entry : content can't be blank"
+}
+        </pre>
+
+      </section>
+
+      <section>
+        <h2 id="update"><a href="#update">UPDATE a Knowledge Base Entry</a></h2>
+        <h3>Endpoint</h3>
+        <p>
+          <pre><b>PUT</b> https://slaask.com/api/faqs/<span class="token property">ID</span></pre>
+        </p>
+        <h3>Parameters</h3>
+        <p>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Key</th>
+                <th>Type</th>
+                <th>Optional?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>secret_key</code></td>
+                <td>String</td>
+                <td>No</td>
+              </tr>
+              <tr>
+                <td><code>id</code></td>
+                <td>Integer</td>
+                <td>No</td>
+              </tr>
+              <tr>
+                <td><code>title</code></td>
+                <td>String</td>
+                <td>No</td>
+              </tr>
+              <tr>
+                <td><code>content</code></td>
+                <td>Text</td>
+                <td>No</td>
+              </tr>
+            </tbody>
+          </table>
+        </p>
+        <h3>Request</h3>
+        <p>
+          <u class="hover-swag"><b>ID</b> is the id of the Knowledge Base Entry you want to update.</u>
+          <br>
+          <u class="hover-swag"><b>Title</b> will be the new title of the Knowledge Base Entry you want to update.</u>
+          <br>
+          <u class="hover-swag"><b>Content</b> will be the new content of the Knowledge Base Entry you want to update.</u>
+        </p>
+        <div class="code-window">
+          <div class="window-bar">
+            <div class="circles">
+              <span class="circle circle-red"></span> <span class="circle circle-yellow"></span> <span class="circle circle-green"></span>
+            </div>
+            <div class="languages">
+              <div class="btn-group" data-toggle="buttons">
+                <label class="btn-curlpre btn active">cURL</label>
+                <label class="btn-javapre btn">Java</label>
+                <label class="btn-javascriptpre btn">Javascript</label>
+                <label class="btn-nodepre btn">NodeJS</label>
+                <label class="btn-phppre btn">PHP</label>
+                <label class="btn-pythonpre btn">Python</label>
+                <label class="btn-rubypre btn">Ruby</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="window-content">
+            <pre class="curlpre line-numbers" data-language="markup">
+
+curl -X PUT "https://slaask.com/api/faqs/<span class="token property">ID</span>?secret_key=<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>&title=<span class="token property">newtitle</span>&content=<span class="token property">newcontent</span>"
+            </pre>
+            <pre class="javapre line-numbers hidden" data-language="markup">
+
+OkHttpClient client = new OkHttpClient();
+
+Request request = new Request.Builder()
+  .url("https://slaask.com/api/faqs/<span class="token property">ID</span>?secret_key=<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>&title=<span class="token property">newtitle</span>&content=<span class="token property">newcontent</span>")
+  .put(null)
+  .build();
+
+Response response = client.newCall(request).execute();
+            </pre>
+            <pre class="javascriptpre line-numbers hidden" data-language="markup">
+
+var data = null;
+
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function () {
+  if (this.readyState === 4) {
+    console.log(JSON.parse(this.responseText));
+  }
+});
+
+xhr.open("PUT", "https://slaask.com/api/faqs/<span class="token property">ID</span>?secret_key=<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>&title=<span class="token property">newtitle</span>&content=<span class="token property">newcontent</span>");
+
+xhr.send(data);
+            </pre>
+            <pre class="nodepre line-numbers hidden" data-language="markup">
+
+var request = require("request");
+
+var options = { method: 'PUT',
+  url: 'https://slaask.com/api/faqs/<span class="token property">ID</span>',
+  qs: {
+    secret_key: '<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>',
+    title: '<span class="token property">newtitle</span>',
+    content: '<span class="token property">newcontent</span>'
+  };
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
+            </pre>
+            <pre class="phppre line-numbers hidden" data-language="markup">
+
+<?php
+
+$request = new HttpRequest();
+$request->setUrl('https://slaask.com/api/faqs/<span class="token property">ID</span>');
+$request->setMethod(HTTP_METH_PUT);
+
+$request->setQueryData(array(
+  'secret_key' => '<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>',
+  'title' => '<span class="token property">newtitle</span>',
+  'content' => '<span class="token property">newcontent</span>'
+));
+
+try {
+  $response = $request->send();
+
+  echo $response->getBody();
+} catch (HttpException $ex) {
+  echo $ex;
+}
+            </pre>
+            <pre class="pythonpre line-numbers hidden" data-language="markup">
+
+import requests
+
+url = "https://slaask.com/api/faqs/<span class="token property">ID</span>"
+
+querystring = {"secret_key":"<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>", "title":"<span class="token property">newtitle</span>", "content": "<span class="token property">newcontent</span>"}
+
+response = requests.request("PUT", url, headers={}, params=querystring)
+
+print(response.text)
+            </pre>
+            <pre class="rubypre line-numbers hidden" data-language="markup">
+
+require 'uri'
+require 'net/http'
+
+url = URI("https://slaask.com/api/faqs/<span class="token property">ID</span>?secret_key=<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>&title=<span class="token property">newtitle</span>&content=<span class="token property">newcontent</span>")
+
+http = Net::HTTP.new(url.host, url.port)
+http.use_ssl = true
+http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+request = Net::HTTP::Put.new(url)
+
+response = http.request(request)
+puts response.read_body
+            </pre>
+          </div>
+        </div>
+        <h3>Response</h3>
+        <p>
+          Status: <b>200 OK</b>
+          <pre>
+
+{
+  "success": true,
+  "result": {
+    "id": <span class="token property">ID</span>,
+    "title": "newtitle",
+    "content": "newcontent",
+    "created_at": "2016-10-12T15:22:09.000Z",
+    "updated_at": "2016-10-12T15:22:09.000Z"
+  }
+}
+          </pre>
+        </p>
+        <h3>Errors</h3>
+        <p>
+          Status: <b>403 Forbidden</b>
+        </p>
+        <pre>
+
+{
+  "success": false,
+  "message": "Invalid Widget secret key"
+}
+        </pre>
+        <p>
+          Status: <b>401 Unhautorized</b>
+        </p>
+        <pre>
+
+{
+  "success": false,
+  "message": "Can't create Knowledge Base Entry : title can't be blank"
+}
+        </pre>
+        <p>
+          or
+        </p>
+        <pre>
+
+{
+  "success": false,
+  "message": "Can't create Knowledge Base Entry : content can't be blank"
+}
+        </pre>
+
+      </section>
+
+      <section>
+        <h2 id="delete"><a href="#delete">DELETE a Knowledge Base Entry</a></h2>
+        <h3>Endpoint</h3>
+        <p>
+          <pre><b>DELETE</b> https://slaask.com/api/faqs/<span class="token property">ID</span></pre>
+        </p>
+        <h3>Parameters</h3>
+        <p>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Key</th>
+                <th>Type</th>
+                <th>Optional?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>secret_key</code></td>
+                <td>String</td>
+                <td>No</td>
+              </tr>
+              <tr>
+                <td><code>id</code></td>
+                <td>Integer</td>
+                <td>No</td>
+              </tr>
+            </tbody>
+          </table>
+        </p>
+        <h3>Request</h3>
+        <p>
+          <u class="hover-swag">ID is the id of the Knowledge Base Entry you want to get.</u>
+        </p>
+        <div class="code-window">
+          <div class="window-bar">
+            <div class="circles">
+              <span class="circle circle-red"></span> <span class="circle circle-yellow"></span> <span class="circle circle-green"></span>
+            </div>
+            <div class="languages">
+              <div class="btn-group" data-toggle="buttons">
+                <label class="btn-curlpre btn active">cURL</label>
+                <label class="btn-javapre btn">Java</label>
+                <label class="btn-javascriptpre btn">Javascript</label>
+                <label class="btn-nodepre btn">NodeJS</label>
+                <label class="btn-phppre btn">PHP</label>
+                <label class="btn-pythonpre btn">Python</label>
+                <label class="btn-rubypre btn">Ruby</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="window-content">
+            <pre class="curlpre line-numbers" data-language="markup">
+
+curl -X DELETE "https://slaask.com/api/faqs/<span class="token property">ID</span>?secret_key=<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>"
+            </pre>
+            <pre class="javapre line-numbers hidden" data-language="markup">
+
+OkHttpClient client = new OkHttpClient();
+
+Request request = new Request.Builder()
+  .url("https://slaask.com/api/faqs/<span class="token property">ID</span>?secret_key=<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>")
+  .delete()
+  .build();
+
+Response response = client.newCall(request).execute();
+            </pre>
+            <pre class="javascriptpre line-numbers hidden" data-language="markup">
+
+var data = null;
+
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function () {
+  if (this.readyState === 4) {
+    console.log(JSON.parse(this.responseText));
+  }
+});
+
+xhr.open("DELETE", "https://slaask.com/api/faqs/<span class="token property">ID</span>?secret_key=<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>");
+
+xhr.send(data);
+            </pre>
+            <pre class="nodepre line-numbers hidden" data-language="markup">
+
+var request = require("request");
+
+var options = { method: 'DELETE',
+  url: 'https://slaask.com/api/faqs/<span class="token property">ID</span>',
+  qs: { secret_key: '<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>' };
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
+            </pre>
+            <pre class="phppre line-numbers hidden" data-language="markup">
+
+<?php
+
+$request = new HttpRequest();
+$request->setUrl('https://slaask.com/api/faqs/<span class="token property">ID</span>');
+$request->setMethod(HTTP_METH_DELETE);
+
+$request->setQueryData(array(
+  'secret_key' => '<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>'
+));
+
+try {
+  $response = $request->send();
+
+  echo $response->getBody();
+} catch (HttpException $ex) {
+  echo $ex;
+}
+            </pre>
+            <pre class="pythonpre line-numbers hidden" data-language="markup">
+
+import requests
+
+url = "https://slaask.com/api/faqs/<span class="token property">ID</span>"
+
+querystring = {"secret_key":"<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>"}
+
+response = requests.request("DELETE", url, headers={}, params=querystring)
+
+print(response.text)
+            </pre>
+            <pre class="rubypre line-numbers hidden" data-language="markup">
+
+require 'uri'
+require 'net/http'
+
+url = URI("https://slaask.com/api/faqs/<span class="token property">ID</span>?secret_key=<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>")
+
+http = Net::HTTP.new(url.host, url.port)
+http.use_ssl = true
+http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+request = Net::HTTP::Delete.new(url)
+
+response = http.request(request)
+puts response.read_body
+            </pre>
+          </div>
+        </div>
+        <h3>Response</h3>
+        <p>
+          Status: <b>200 OK</b>
+          <pre>
+
+{
+  "success": true,
+  "result": {
+    "id": <span class="token property">ID</span>,
+    "title": "My Knowledge base title",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "created_at": "2016-10-12T15:22:09.000Z",
+    "updated_at": "2016-10-12T15:22:09.000Z"
+  }
+}
+          </pre>
+        </p>
+        <h3>Errors</h3>
+        <p>
+          Status: <b>403 Forbidden</b>
+        </p>
+        <pre>
+
+{
+  "success": false,
+  "message": "Invalid Widget secret key"
+}
+        </pre>
+        <p>
+          Status: <b>404 Not Found</b>
+        </p>
+        <pre>
+
+{
+  "success": false,
+  "message": "Unknown Knowledge Base Entry"
+}
+        </pre>
+
+      </section>
+
+    </article>
+    <!-- END Main content -->
+  </div>
+</main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-rc1/jquery.min.js"></script>
+    <script src="/assets/main.js"></script>
+</body>
+</html>

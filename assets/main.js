@@ -18,10 +18,10 @@ $(function() {
 
   $('.btn').click(function() {
     $('.code-window .btn').removeClass('active');
-    $(this).addClass('active');
+    $('.' + this.className.split(' ')[0]).addClass('active');
 
     $('.code-window pre').addClass('hidden');
-    $('#' + this.id.split('-')[1]).removeClass('hidden');
+    $('.' + this.className.split(' ')[0].split('-')[1]).removeClass('hidden');
   })
 
   $('.hover-swag').hover(function() {

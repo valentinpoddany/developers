@@ -15,7 +15,7 @@
     }
   },
   "ios-sdk": {
-    "name": "iOS SDK <b>(BETA)</b>",
+    "name": "iOS SDK <b>(ALPHA)</b>",
     "pages": {
       "initializing-the-widget": { "title": "Initializing the widget" },
       "getting-more-information": { "title": "Gathering more information about your visitors" },
@@ -23,11 +23,18 @@
     }
   },
   "android-sdk": {
-    "name": "Android SDK <b>(BETA)</b>",
+    "name": "Android SDK <b>(ALPHA)</b>",
     "pages": {
       "initializing-the-widget": { "title": "Initializing the widget" },
       "getting-more-information": { "title": "Gathering more information about your visitors" },
       "functions": { "title": "Functions" }
+    }
+  },
+  "rest-api": {
+    "name": "REST API <b>(BETA)</b>",
+    "pages": {
+      "find-my-secret-key": { "title": "Find my Secret Key" },
+      "faqs": { "title": "Manage my Knowledge Base" }
     }
   },
   "design": {
