@@ -75,11 +75,11 @@
           <li>
           <p>Sign in to your Slaask account at <a href="https://slaask.com/account">slaask.com</a>.</p>
           </li>
-          
+
           <li>
           <p>Click on <b>Personalization</b> over on the left sidebar.</p>
           </li>
-          
+
           <li>
           <p>Copy your unique Slaask key (known as the <b>Widget key</b>) that corresponds to the Slaask live chat widget you wish to deploy on your mobile app.</p>
           </li>
@@ -121,20 +121,20 @@
                 </div>
                 <div class="languages">
                   <div class="btn-group" data-toggle="buttons">
-                    <label id="btn-swift" class="btn active">swift</label>
-                    <label id="btn-objective" class="btn">objective-c</label>
+                    <label class="btn-swift btn active">swift</label>
+                    <label class="btn-objective btn">objective-c</label>
                   </div>
                 </div>
               </div>
 
               <div class="window-content">
-                <pre id="swift" class="line-numbers" data-language="markup">
+                <pre class="swift line-numbers" data-language="markup">
 
 let config      = SLAASKConfig.init(slaaskToken: "<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>")
 let manager     = SLAASKManager.sharedInstance
 manager.config  = config
                 </pre>
-                <pre id="objective" class="line-numbers hidden" data-language="markup">
+                <pre class="objective line-numbers hidden" data-language="markup">
 
 SLAASKConfig *config    = [[SLAASKConfig alloc] initWithSlaaskToken:@"<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>"];
 SLAASKManager *manager  = [SLAASKManager sharedInstance];

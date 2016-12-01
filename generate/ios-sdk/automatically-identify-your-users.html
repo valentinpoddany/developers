@@ -28,14 +28,14 @@
             </div>
             <div class="languages">
               <div class="btn-group" data-toggle="buttons">
-                <label id="btn-swift" class="btn active">swift</label>
-                <label id="btn-objective" class="btn">objective-c</label>
+                <label class="btn-swift btn active">swift</label>
+                <label class="btn-objective btn">objective-c</label>
               </div>
             </div>
           </div>
 
               <div class="window-content">
-                <pre id="swift" class="line-numbers" data-language="markup">
+                <pre class="swift line-numbers" data-language="markup">
 
 let identify        = SLAASKIdentify.init(identifyName: <span class="token property">"JackieChan"</span>, options: ["user_id" : <span class="token property">"123456"</span>, "email" : <span class="token property">"jackie@chan.com"</span>, "speciality" : <span class="token property">"martial artist"</span>])
 let config          = SLAASKConfig.init(slaaskToken: "<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>")
@@ -46,7 +46,7 @@ config.visitorToken = <span class="token property">"a-unique-visitor-attribute"<
 let manager         = SLAASKManager.sharedInstance
 manager.config      = config
                 </pre>
-                <pre id="objective" class="line-numbers hidden" data-language="markup">
+                <pre class="objective line-numbers hidden" data-language="markup">
 
 SLAASKIdentify *identify  = [[SLAASKIdentify alloc] initWithIdentifyName:<span class="token property">@"JackieChan"</span> options:@{@"user_id" : <span class="token property">@"123456"</span>, @"email" : <span class="token property">@"jackie@chan.com"</span>, @“speciality” : <span class="token property">@martial artist</span>}];
 SLAASKConfig *config      = [[SLAASKConfig alloc] initWithSlaaskToken:@"<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>"];
