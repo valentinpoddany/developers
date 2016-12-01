@@ -17,16 +17,16 @@
   "ios-sdk": {
     "name": "iOS SDK <b>(ALPHA)</b>",
     "pages": {
-      "initializing-the-widget": { "title": "Initializing the widget" },
-      "getting-more-information": { "title": "Gathering more information about your visitors" },
+      "implementing-slaask": { "title": "Implementing Slaask" },
+      "automatically-identify-your-users": { "title": "Automatically identify your users" },
       "functions": { "title": "Functions" }
     }
   },
   "android-sdk": {
     "name": "Android SDK <b>(ALPHA)</b>",
     "pages": {
-      "initializing-the-widget": { "title": "Initializing the widget" },
-      "getting-more-information": { "title": "Gathering more information about your visitors" },
+      "implementing-slaask": { "title": "Implementing Slaask" },
+      "automatically-identify-your-users": { "title": "Automatically identify your users" },
       "functions": { "title": "Functions" }
     }
   },
