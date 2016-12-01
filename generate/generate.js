@@ -73,7 +73,13 @@ function merge() {
   }
 
   function getHeader(currCatg, currPage) {
-    return files["header.html"].replace(/{{nav}}/g, generateNav(currCatg, currPage)).replace(/{{title}}/g, (currCatg == "index") ? catgList[currCatg].title : catgList[currCatg].pages[currPage].title);
+    if (currCatg == "index"){
+      windowTitle = catgList[currCatg].window_title || catgList[currCatg].title
+    } else {
+      windowTitle = catgList[currCatg].pages[currPage].window_title || catgList[currCatg].pages[currPage].title
+    }
+
+    return files["header.html"].replace(/{{nav}}/g, generateNav(currCatg, currPage)).replace(/{{title}}/g, windowTitle);
   }
 
   function getBody(currCatg, currPage, data) {

@@ -1,5 +1,5 @@
 {
-  "index": { "title": "Overview" },
+  "index": { "title": "Overview", "window_title": "Developers documentation" },
   "javascript-sdk": {
     "name": "Javascript SDK",
     "pages": {
