@@ -1,0 +1,147 @@
+<main class="container-fluid">
+  <div class="row">
+
+    <!-- Main content -->
+    <article class="main-content" role="main">
+
+      <header>
+        <h1>Manage Outgoing WebHooks for Conversations</h1>
+        <ol class="toc">
+          <li><a href="#create">Create an Outgoing WebHook</a></li>
+          <li><a href="#test">"Test" Event</a></li>
+          <li><a href="#new_conversation">"New Conversation" Event</a></li>
+          <li><a href="#end_conversation">"Conversation Ended" Event</a></li>
+        </ol>
+      </header>
+
+      <section>
+        <h2 id="create"><a href="#create">Create an Outgoing WebHook</a></h2>
+        <ul class="step-text">
+          <li>
+            <p>Go to your Slaask account and click on <b>Integrations</b> (you can also <a href="https://slaask.com/integrations">follow this link</a>) </p>
+          </li>
+          <li>
+            <p>In the <b>Others</b> tab, you'll find an integration named <b>Custom Webhooks</b>.</p>
+          </li>
+          <li>
+            <p>
+              Choose an event between <a href="#new_conversation">New Conversation</a> and <a href="#end_conversation">Conversation Ended</a>, add your Endpoint URL, and Save.
+            </p>
+            <p>
+              Note that a <a href="#test">test WebHook</a> will be sent to this URL. This test WebHook will contain your unique WebHook Security Token to identify Slaask servers.
+            </p>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 id="test"><a href="#test">"Test" Event</a></h2>
+        <p><b>WebHook content:</b></p>
+        <pre>
+
+{
+  "event": "test",
+  "token": "a-unique-token"
+}
+        </pre>
+      </section>
+
+      <section>
+        <h2 id="new_conversation"><a href="#new_conversation">"New Conversation" Event</a></h2>
+        <p><b>WebHook content:</b></p>
+        <pre>
+
+{
+  "event": "new_conversation",
+  "token": "a-unique-token",
+  "payload": {
+    "id": 12345,
+    "started_at": "2016-12-06T15:20:11.000Z",
+    "trigger": {
+      "conversation_started_by_trigger": false,
+      "trigger_id": null
+    },
+    "user_group":{
+      "conversation_in_a_user_group": true,
+      "user_group_id": 123
+    },
+    "visitor": {
+      "name": "Remi Delhaye",
+      "email": "remi@slaask.com",
+      "language": "en-US",
+      "last_visited_page": "https://get.slaask.com",
+      "platform": "OS X (10.11.6)",
+      "browser": "Chrome (52.0.2743.116)",
+      "city": "San Francisco, CA",
+      "country": "US",
+      "referrer": "",
+      "pages_visited_count": 123,
+      "custom_informations":{
+        "user_id": 1234567,
+        "firstname": "Rémi",
+        "lastname": "Delhaye",
+        "team_id": 1
+      }
+    }
+  }
+}
+        </pre>
+      </section>
+
+      <section>
+        <h2 id="end_conversation"><a href="#end_conversation">"Conversation Ended" Event</a></h2>
+        <p><b>WebHook content:</b></p>
+        <pre>
+
+{
+  "event": "end_conversation",
+  "token": "a-unique-token",
+  "payload": {
+    "id": 12345,
+    "started_at": "2016-12-06T15:20:11.000Z",
+    "trigger": {
+      "conversation_started_by_trigger": false,
+      "trigger_id": null
+    },
+    "user_group":{
+      "conversation_in_a_user_group": true,
+      "user_group_id": 123
+    },
+    "visitor": {
+      "name": "Remi Delhaye",
+      "email": "remi@slaask.com",
+      "language": "en-US",
+      "last_visited_page": "https://get.slaask.com",
+      "platform": "OS X (10.11.6)",
+      "browser": "Chrome (52.0.2743.116)",
+      "city": "San Francisco, CA",
+      "country": "US",
+      "referrer": "",
+      "pages_visited_count": 123,
+      "custom_informations":{
+        "user_id": 1234567,
+        "firstname": "Rémi",
+        "lastname": "Delhaye",
+        "team_id": 1
+      }
+    },
+    "messages": [
+      {
+        "content": "Hello world!"
+        "from": "Remi Delhaye"
+        "from_image": ""
+        "sent_at": "2016-12-06T15:20:11.000Z"
+      },
+      {
+        ...
+      }
+    ]
+  }
+}
+        </pre>
+      </section>
+
+    </article>
+    <!-- END Main content -->
+  </div>
+</main>

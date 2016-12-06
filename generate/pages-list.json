@@ -37,6 +37,14 @@
       "faqs": { "title": "Manage my Knowledge Base" }
     }
   },
+  "outgoing-webhooks": {
+    "name": "Outgoing WebHooks",
+    "pages": {
+      "whats-a-webhook": { "title": "What's an Outgoing WebHook?" },
+      "conversations": { "title": "Conversations", "window_title": "Manage Outgoing WebHooks for Conversations" },
+      "faqs": { "title": "Knowledge Base Entries", "window_title": "Manage Outgoing WebHooks for Knowledge Base Entries" }
+    }
+  },
   "design": {
     "name": "Design",
     "pages": {

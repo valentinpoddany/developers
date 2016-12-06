@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Manage Outgoing WebHooks for Knowledge Base Entries</title>
+  <meta name="description" content="Explore Slaask APIs and SDKs, including documentation, sample code, and support resources.">
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="shortcut icon" type="image/x-icon" href="https://cdn.slaask.com/favicon.png" />
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+</head>
+<body>
+  <aside class="sidebar sidebar-boxed">
+
+    <a class="sidebar-brand" href="/"><img src="https://cdn.slaask.com/slaask_logo_lg.png" alt="logo"></a>
+
+    <ul class="sidenav dropable sticky" style="height: 649px;position: static;">
+      <li class="add-api-key-link"><a href="/">Overview</a></li><li class="add-api-key-link"><a class="has-child" href="#">Javascript SDK</a><ul><li class="add-api-key-link"><a href="/javascript-sdk/why-a-javascript-sdk.html">Why do we use a Javascript API?</a></li><li class="add-api-key-link"><a href="/javascript-sdk/initializing-the-widget.html">Initializing the widget</a></li><li class="add-api-key-link"><a href="/javascript-sdk/loading-the-widget-asynchronously.html">Loading the widget asynchronously</a></li><li class="add-api-key-link"><a href="/javascript-sdk/getting-more-information.html">Gathering more information about your visitors</a></li><li class="add-api-key-link"><a href="/javascript-sdk/javascript-sdk-functions.html">Functions</a></li><li class="add-api-key-link"><a href="/javascript-sdk/javascript-sdk-events.html">Events</a></li><li class="add-api-key-link"><a href="/javascript-sdk/open-slaask-from-button.html">Opening Slaask from an item/button</a></li><li class="add-api-key-link"><a href="/javascript-sdk/single-page-application.html">Enabling Slaask to work with Single-Page Application</a></li><li class="add-api-key-link"><a href="/javascript-sdk/turbolinks.html">Enabling Slaask to work with Turbolinks</a></li></ul></li><li class="add-api-key-link"><a class="has-child" href="#">iOS SDK <b>(ALPHA)</b></a><ul><li class="add-api-key-link"><a href="/ios-sdk/implementing-slaask.html">Implementing Slaask</a></li><li class="add-api-key-link"><a href="/ios-sdk/automatically-identify-your-users.html">Automatically identify your users</a></li><li class="add-api-key-link"><a href="/ios-sdk/functions.html">Functions</a></li></ul></li><li class="add-api-key-link"><a class="has-child" href="#">Android SDK <b>(ALPHA)</b></a><ul><li class="add-api-key-link"><a href="/android-sdk/implementing-slaask.html">Implementing Slaask</a></li><li class="add-api-key-link"><a href="/android-sdk/automatically-identify-your-users.html">Automatically identify your users</a></li><li class="add-api-key-link"><a href="/android-sdk/functions.html">Functions</a></li></ul></li><li class="add-api-key-link"><a class="has-child" href="#">REST API <b>(BETA)</b></a><ul><li class="add-api-key-link"><a href="/rest-api/find-my-secret-key.html">Find my Secret Key</a></li><li class="add-api-key-link"><a href="/rest-api/faqs.html">Manage my Knowledge Base</a></li></ul></li><li class="add-api-key-link"><a class="active open has-child" href="#">Outgoing WebHooks</a><ul><li class="add-api-key-link"><a href="/outgoing-webhooks/whats-a-webhook.html">What's an Outgoing WebHook?</a></li><li class="add-api-key-link"><a href="/outgoing-webhooks/conversations.html">Conversations</a></li><li class="add-api-key-link"><a class="active" href="/outgoing-webhooks/faqs.html">Knowledge Base Entries</a></li></ul></li><li class="add-api-key-link"><a class="has-child" href="#">Design</a><ul><li class="add-api-key-link"><a href="/design/adjusting-widget-position.html">Adjusting your widget's icon position</a></li><li class="add-api-key-link"><a href="/design/removing-button-background.html">Removing the white background from the button</a></li><li class="add-api-key-link"><a href="/design/disabling-is-typing-indicator.html">Disabling the "is typing" indicator</a></li><li class="add-api-key-link"><a href="/design/slaask-branding.html">Slaask Brand Guidelines</a></li><li class="add-api-key-link"><a href="/design/slaask-logos.html">Slaask Logos</a></li></ul></li>
+    </ul>
+
+  </aside>
+  <header class="site-header navbar-fullwidth">
+
+    <!-- Top navbar & branding -->
+    <nav class="navbar navbar-default">
+      <div class="container">
+
+        <!-- Toggle buttons and brand -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="true" aria-controls="navbar">
+            <span class="glyphicon glyphicon-option-vertical"></span>
+          </button>
+
+          <button type="button" class="navbar-toggle for-sidebar" data-toggle="offcanvas">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <!-- END Toggle buttons and brand -->
+
+        <!-- Top navbar -->
+        <div id="navbar" class="navbar-collapse collapse" aria-expanded="true" role="banner">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="/">Documentation</a></li>
+            <li><a href="https://slaask.zendesk.com/hc/en-us" target="_blank">FAQ</a></li>
+            <li class="hero">
+            <a href="#" class="slaask-open-widget">Support</a></li>
+          </ul>
+        </div>
+        <!-- END Top navbar -->
+
+      </div>
+    </nav>
+    <!-- END Top navbar & branding -->
+
+  </header>
+<main class="container-fluid">
+  <div class="row">
+
+    <!-- Main content -->
+    <article class="main-content" role="main">
+
+      <header>
+        <h1>Manage Outgoing WebHooks for Knowledge Base Entries</h1>
+        <ol class="toc">
+          <li><a href="#create">Create an Outgoing WebHook</a></li>
+          <li><a href="#test">"Test" Event</a></li>
+          <li><a href="#faq_created">"New Knowledge Base Entry" Event</a></li>
+          <li><a href="#faq_updated">"Knowledge Base Entry Updated" Event</a></li>
+          <li><a href="#faq_deleted">"Knowledge Base Entry Deleted" Event</a></li>
+        </ol>
+      </header>
+
+      <section>
+        <h2 id="create"><a href="#create">Create an Outgoing WebHook</a></h2>
+        <ul class="step-text">
+          <li>
+            <p>Go to your Slaask account and click on <b>Integrations</b> (you can also <a href="https://slaask.com/integrations">follow this link</a>) </p>
+          </li>
+          <li>
+            <p>In the <b>Others</b> tab, you'll find an integration named <b>Custom Webhooks</b>.</p>
+          </li>
+          <li>
+            <p>
+              Choose an event between <a href="#faq_created">New Knowledge Base Entry</a>, <a href="#faq_updated">Knowledge Base Entry Updated</a> and <a href="#faq_deleted">Knowledge Base Entry Deleted</a>, add your Endpoint URL, and Save.
+            </p>
+            <p>
+              Note that a <a href="#test">test WebHook</a> will be sent to this URL. This test WebHook will contain your unique WebHook Security Token to identify Slaask servers.
+            </p>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 id="test"><a href="#test">"Test" Event</a></h2>
+        <p><b>WebHook content:</b></p>
+        <pre>
+
+{
+  "event": "test",
+  "token": "a-unique-token"
+}
+        </pre>
+      </section>
+
+      <section>
+        <h2 id="faq_created"><a href="#faq_created">"New Knowledge Base Entry" Event</a></h2>
+        <p><b>WebHook content:</b></p>
+        <pre>
+
+{
+  "event": "faq_created",
+  "token": "a-unique-token",
+  "payload": {
+    "id": 123,
+    "title": "TEST Webhook",
+    "content": "&lt;p&gt;TEST Webhook&lt;/p&gt;",
+    "created_at": "2016-12-06T15:04:39.989Z",
+    "updated_at": "2016-12-06T15:04:39.989Z"
+  }
+}
+        </pre>
+      </section>
+
+      <section>
+        <h2 id="faq_updated"><a href="#faq_updated">"Knowledge Base Entry Updated" Event</a></h2>
+        <p><b>WebHook content:</b></p>
+        <pre>
+
+{
+  "event": "faq_updated",
+  "token": "a-unique-token",
+  "payload": {
+    "id": 123,
+    "title": "TEST Webhook",
+    "content": "&lt;p&gt;TEST Webhook&lt;/p&gt;",
+    "created_at": "2016-12-06T15:04:39.989Z",
+    "updated_at": "2016-12-06T15:04:39.989Z"
+  }
+}
+        </pre>
+      </section>
+
+      <section>
+        <h2 id="faq_deleted"><a href="#faq_deleted">"Knowledge Base Entry Deleted" Event</a></h2>
+        <p><b>WebHook content:</b></p>
+        <pre>
+
+{
+  "event": "faq_deleted",
+  "token": "a-unique-token",
+  "payload": {
+    "id": 123,
+    "title": "TEST Webhook",
+    "content": "&lt;p&gt;TEST Webhook&lt;/p&gt;",
+    "created_at": "2016-12-06T15:04:39.989Z",
+    "updated_at": "2016-12-06T15:04:39.989Z"
+    "deleted_at": "2016-12-06T16:04:39.989Z"
+  }
+}
+        </pre>
+      </section>
+
+    </article>
+    <!-- END Main content -->
+  </div>
+</main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-rc1/jquery.min.js"></script>
+    <script src="/assets/main.js"></script>
+</body>
+</html>
