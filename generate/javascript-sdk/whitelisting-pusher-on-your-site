@@ -1,0 +1,22 @@
+<main class="container-fluid">
+  <div class="row">
+
+    <!-- Main content -->
+    <article class="main-content" role="main">
+
+      <header>
+        <h1>Whitelisting Pusher on your site</h1>
+      </header>
+
+      <section>
+        <p>To deliver an amazing live chat experience to you and all your leads and customers, we are working hand in hand with Pusher.</p>
+
+        <p>If your site only allows your scripts to make requests to a few specific websites, in order for Slaask live chat to work properly, you should add Pusher to your list of authorized domains.</p>
+
+        <p>You should authorize the <code>pusher.com</code> domain and/or the <code>js.pusher.com</code> subdomain according to your external script filtering solution.</p>
+      </section>
+
+    </article>
+    <!-- END Main content -->
+  </div>
+</main>
